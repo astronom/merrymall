@@ -1,0 +1,13 @@
+#logo {top: -16px;}
+#vert-fl-selector { position: absolute; top: 70px; left: 135px;}
+#vert-fl-selector .cn  { left:2px; }
+#bmenu { position: relative; top: -190px; }
+
+ /* Floor select form */
+/*.fs {background: url("/images/floors/bg_mini.png") 100% 0% no-repeat;}*/
+
+
+/* hall */
+#hall-shopwindows-container { position: absolute; z-index: 0; top: 4px; left: 213px; }
+#hall-person-boy {position: absolute; top: 40px; left: 805px;}
+#hall-person-girl {position: absolute; top: 40px; left: 215px;}

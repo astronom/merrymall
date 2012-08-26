@@ -1,0 +1,127 @@
+s_file:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sFile
+    module:               s_file
+    prefix_path:          /s_file
+    column:               id
+    with_wildcard_routes: true
+
+s_cart:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sCart
+    module:               s_cart
+    prefix_path:          /s_cart
+    column:               id
+    with_wildcard_routes: true
+
+s_order:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sOrder
+    module:               s_order
+    prefix_path:          /s_order
+    column:               id
+    with_wildcard_routes: true
+    default_params:
+      company_page: true
+s_brand:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sBrand
+    module:               s_brand
+    prefix_path:          /s_brand
+    column:               id
+    with_wildcard_routes: true
+    default_params:
+      company_page: true
+
+s_category:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sCategory
+    module:               s_category
+    prefix_path:          /s_category
+    column:               id
+    with_wildcard_routes: true
+    default_params:
+      company_page: true
+
+s_property:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sProperty
+    module:               s_property
+    prefix_path:          /s_property
+    column:               id
+    with_wildcard_routes: true
+    default_params:
+      company_page: true
+
+s_property_value:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sPropertyValue
+    module:               s_property_value
+    prefix_path:          /s_property_value
+    column:               id
+    with_wildcard_routes: true
+    default_params:
+      company_page: true
+
+s_item:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sItem
+    module:               s_item
+    prefix_path:          /s_item
+    column:               id
+    with_wildcard_routes: true
+    default_params:
+      company_page: true
+
+s_item_variant:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sItemVariant
+    module:               s_item_variant
+    prefix_path:          /s_item_variant
+    column:               id
+    with_wildcard_routes: true
+    default_params:
+      company_page: true
+
+s_image:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sImage
+    module:               s_image
+    prefix_path:          /s_image
+    column:               id
+    with_wildcard_routes: true
+    default_params:
+      company_page: true
+
+sf_guard_signin:
+  url:   /login
+  param: { module: signin, action: index }
+
+sf_guard_signout:
+  url:   /logout
+  param: { module: signin, action: signout }
+
+sf_guard_restore_password:
+  url:   /restore_password
+  param: { module: signin, action: restorePassword }
+
+homepage:
+  url:   /
+  param: { module: index, action: index }
+
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

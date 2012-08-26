@@ -1,0 +1,29 @@
+/*body { behavior: url("css/csshover2.htc"); }*/
+.on-action {filter:alpha(opacity=30);}
+.on-action-cart {filter:alpha(opacity=30);}
+.wishlist {text-align: left;}
+.wish, .wish_last {padding: 12px 0px 0 10px; width: 205px;}
+
+.wish_image {overflow: hidden;}
+
+.wish_actions {left: 180px;}
+	.add_cart {top: 40px;}
+	.wish_delete {top: -5px;}
+
+.on-action img {display: block; margin: 50px 25px 0 0;}
+.wish {overflow: visible; }
+/*.zoomin {left: 21px; filter:alpha(opacity=70);}*/
+
+ .mmChatFormInput {margin: 10px 0 0 10px;}
+ .mmChatFormButton {margin-right: 25px;}
+ 
+.store-item-image, .store-item-name {position: relative; top: -30px;}
+.store-item-wishlist {height: 60px;}
+
+.store-item-gallery {margin-top: 50px;}
+
+.top5px {top: -15px !important;}
+.top10px {top: -10px !important;}
+
+	 					
+

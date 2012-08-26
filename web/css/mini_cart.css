@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+/* Mini Cart */
+  .mini_cart {display: block; 
+              margin: 0px; 
+              position: fixed; top: 80px; right: 0px; 
+              z-index: 99; 
+              width: 250px;}             
+    .mini_cart_layout {background: #fff!important; border: 5px solid #abc8da;}
+      .mini_cart_title {background: #fff; padding-left: 15px;}
+        .mini_cart_title a {color: #507c24; text-decoration: none; font-size: 13pt;}
+        .mini_cart_title a:hover {text-decoration: underline;}
+      .mini_cart_content {width: auto; height: 100%; margin: 15px; margin-top: 0px;}
+      .mini_cart_content img {}
+    #cart_actions {padding-left: 15px;}
+    #cart_sum {padding: 7px 0px;}
+	#cart_empty {text-align: center;}
+/* Add Cart Item */
+/*  #add_cart_item {visibility: hidden;} */ 
+  .add_cart_item { 
+              margin: 0px; 
+              position: absolute; top: 0px; right: 0px; 
+              z-index: 99; 
+              width: 280px;}             
+    .add_cart_item_layout {background: #c4e2fa!important; border: 5px solid #abc8da; padding: 10px;}
+    .add_cart_item_layout input {text-align: center;}
+    #close_add_cart_item {cursor: pointer;}  

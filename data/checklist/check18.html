@@ -1,0 +1,68 @@
+<p class="permalink">
+    <a title="http://symfony-check.org/permalink/optimize-your-routes" href="/permalink/optimize-your-routes">permalink</a>
+</p>
+<p>
+    The symfony routing system is one of the killer features of the framework.
+</p>
+<pre><code>&lt;p&gt;Please have a look on &lt;php echo link_to('our products', 'product/index') ?&gt;.&lt;/p&gt;
+</code></pre>
+<p>
+    Indicate in your template which 
+    <code>
+        module/action
+    </code>
+    you want and then let 
+    <code>
+        routing.yml
+    </code>
+    do all the job.
+</p>
+<p>
+    You can use the default rule:
+</p>
+<pre><code>default:
+  url:   /:module/:action/*
+</code></pre>
+<p>
+    Or add a dedicated one:
+</p>
+<pre><code>product_list:
+  url:     /our-products
+  param:   { module: product, action: index }
+</code></pre>
+<p>
+    Clear your cache and all the related links and uri will be modified, all over the application.
+</p>
+<p>
+    <strong>It feels like magic, but it has a cost.</strong>
+</p>
+<p>
+    Each time the url request 
+    <code>
+        product/index
+    </code>
+    is found in a template, symfony has to scan all the rules defined in 
+    <code>
+        routing.yml
+    </code>
+    and guess which one can handle this request.
+    <br>
+    The default rule ? An other one ?
+</p>
+<p>
+    This search is done for all the links...
+</p>
+<p>
+    If your project have many pages and many routing rules, you can speed up your application by using rule labels instead of a module/action pairs in your templates:
+</p>
+<pre><code>&lt;p&gt;Please have a look on &lt;php echo link_to('our products', '@product_list') ?&gt;.&lt;/p&gt;
+</code></pre>
+<p>
+    This solution will speed up the routing, but the drawback is that internal links can become a little less self-evident.
+</p>
+<p>
+    It's up to you.
+</p>
+<p>
+    <em>Read the <a href="http://www.symfony-project.org/book/1_2/09-Links-and-the-Routing-System#chapter_09_sub_speeding_up_routing_by_using_the_rule_name">related symfony documentation</a></em>
+</p>

@@ -1,0 +1,194 @@
+s_office_text:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sOfficeText
+    module:               s_office_text
+    prefix_path:          company/:company_id/s_office_text
+    column:               id
+    with_wildcard_routes: true
+    default_params:
+      company_page: true
+
+yml_company:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ymlCompany
+    module:               s_uploader
+    prefix_path:          company/:company_id/s_uploader
+    column:               id
+    with_wildcard_routes: true
+    object_actions: { ListRead: get, PageRead: get }
+    default_params:
+      company_page: true    
+
+yml_company_read:
+  url:  company/:company_id/s_uploader/:id/ReadPage/:page_id
+  class: sfDoctrineRoute
+  options: { model: ymlCompany, type: object, method: findPriceById, company_page: true }
+  param:
+    module: s_uploader
+    action: ReadPage
+  requirements:
+    page_id: \d+
+
+yml_company_parse_excel:
+  url:  company/:company_id/s_uploader/ParsePage
+  class: sfDoctrineRoute
+  options: { model: ymlCompany, type: object, company_page: true }  
+  param:
+    module: s_uploader
+    action: ParsePage
+  requirements:
+    sf_method: [post]
+    
+
+actions:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Actions
+    module:               actions
+    prefix_path:          /actions
+    column:               id
+    with_wildcard_routes: true
+
+texts:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Texts
+    module:               text
+    prefix_path:          /text
+    column:               id
+    with_wildcard_routes: true
+
+news:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                News
+    module:               news
+    prefix_path:          /news
+    column:               id
+    with_wildcard_routes: true
+
+s_brand:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sBrand
+    module:               s_brand
+    prefix_path:          /company/:company_id/s_brand
+    column:               id
+    with_wildcard_routes: true
+    default_params:
+      company_page: true
+
+s_category:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sCategory
+    module:               s_category
+    prefix_path:          /company/:company_id/s_category
+    column:               id
+    with_wildcard_routes: true
+    default_params:
+      company_page: true
+
+s_property:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sProperty
+    module:               s_property
+    prefix_path:          /company/:company_id/s_property
+    column:               id
+    with_wildcard_routes: true
+    default_params:
+      company_page: true
+
+s_property_value:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sPropertyValue
+    module:               s_property_value
+    prefix_path:          /company/:company_id/s_property_value
+    column:               id
+    with_wildcard_routes: true
+    default_params:
+      company_page: true
+
+s_item:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sItem
+    module:               s_item
+    prefix_path:          /company/:company_id/s_item
+    column:               id
+    with_wildcard_routes: true
+    default_params:
+      company_page: true
+
+s_item_variant:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sItemVariant
+    module:               s_item_variant
+    prefix_path:          /company/:company_id/s_item_variant
+    column:               id
+    with_wildcard_routes: true
+    default_params:
+      company_page: true
+
+s_image:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sImage
+    module:               s_image
+    prefix_path:          /company/:company_id/s_image
+    column:               id
+    with_wildcard_routes: true
+    default_params:
+      company_page: true
+
+company:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Company
+    module:               company
+    prefix_path:          /company
+    column:               id
+    with_wildcard_routes: true
+
+floor:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Floor
+    module:               floor
+    prefix_path:          /floor
+    column:               id
+    with_wildcard_routes: true
+
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# default rules
+homepage:
+  url:   /
+  param: { module: index, action: index }
+
+sf_guard_signin:
+  url:   /login
+  param: { module: signin, action: index }
+
+sf_guard_signout:
+  url:   /logout
+  param: { module: signin, action: signout }
+
+#sf_guard_password:
+#  url:   /request_password
+#  param: { module: sfGuardAuth, action: password }
+
+# generic rules
+# please, remove them by adding more specific rules
+#default_index:
+#  url:   /:module
+#  param: { action: index }
+
+#default:
+#  url:   /:module/:action/*

@@ -1,0 +1,13 @@
+index:
+  enabled:     true
+hall:
+  enabled:     true
+_banner360x90:
+  enabled:     false
+_verticalFloorSelector:
+  enabled:     false
+_bottomMenu:
+  enabled:     true
+all:
+  with_layout: false
+  

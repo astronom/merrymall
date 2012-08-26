@@ -1,0 +1,9 @@
+# Настройки игры
+all:
+  # максимальное количество игроков топа
+  m_game_plugin_max_top_users: 10
+  # максимальное количество ближайших игроков
+  m_game_plugin_max_near_users: 3  
+  # Листать список игроков по
+  m_game_plugin_max_users_per_page: 10
+

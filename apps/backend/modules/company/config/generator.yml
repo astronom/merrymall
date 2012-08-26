@@ -1,0 +1,45 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Company
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          company
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        id:    {label: №}
+        name:  {label: Название компании}
+        url:  {label: Ссылка}
+        position: {label: Позиция}
+        type:  {label: Тип компании}    
+      list:
+        title: Список Компаний
+        max_per_page: 100
+        display: [id, =name, url, type, has_logo, has_shopwindow, position]
+        sort: [position, asc]
+        fields:
+          has_logo:       {label: Логотип}
+          has_shopwindow: {label: Витрина}
+        table_method: retrieveBackendCompanyList
+        object_actions:
+          promote:
+            action: promote
+          demote:
+            action: demote
+          store:       {label: Магазин, action: store}
+          _edit:      ~
+          _delete:    ~
+
+      filter:
+        class: false
+      form:
+        class:  BackendCompanyForm
+      edit:    ~
+      new:     ~

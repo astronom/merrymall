@@ -1,0 +1,20 @@
+aboutSuccess:
+  metas:
+    title:        О проекте - Merry Mall
+    description:  Мерри Молл
+
+  javascripts:    [  ]
+
+addsSuccess:
+  metas:
+    title:        Размещение рекламы - Merry Mall
+    description:  Мерри Молл
+
+  javascripts:    [  ]
+
+rentSuccess:
+  metas:
+    title:        Арендаторам - Merry Mall
+    description:  Мерри Молл
+
+  javascripts:    [  ]

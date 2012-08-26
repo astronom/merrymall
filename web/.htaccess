@@ -1,0 +1,27 @@
+Options +FollowSymLinks +ExecCGI
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  
+  RewriteCond %{REQUEST_URI} ^/uploads/company/(.*)/store_images/(.*)\.(jpg|jpeg)$
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^.*\/\d{1,}(_.*|\.)jpg|jpeg$ /images/c/item_default$1jpg [L,E=STATUS:404] [OR]
+  
+  
+  #Remove trailing slash
+  RewriteRule ^(.+)/$ http://%{HTTP_HOST}/$1 [R=301,L]
+  RewriteRule ^(.*)/$ index.php/$1 [QSA,L]
+  
+  # no, so we redirect to our front web controller
+  RewriteCond %{REQUEST_URI} ^/admin_dev/?
+  RewriteRule ^(.*)$ admin_dev.php [QSA,L]
+  
+  RewriteCond %{REQUEST_URI} ^/admin/?
+  RewriteRule ^(.*)$ admin.php [QSA,L]
+  
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.*)$ index.php [QSA,L]
+
+</IfModule>

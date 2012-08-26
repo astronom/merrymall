@@ -1,0 +1,69 @@
+/* Mini Cart */
+.cartPos {
+    position: fixed;
+    top: 100px;
+    right: -400px;
+    z-index: 5;
+}
+
+.cart_button {
+    float: left;
+    width: 50px;
+    padding: 5px 16px 5px 10px;
+    height: 32px;
+    cursor: pointer;
+    background: transparent url("/images/icons/cart_32x32.png") 89% 50% no-repeat;
+}
+
+.cart_button span {
+    color: #1f6594;
+    font-size: 20px;
+    padding: 6px;
+    float: left;
+}
+
+.mini_cart {
+    display: block;
+    background-color: #dfeffc;
+    width: 400px;
+    min-height: 100px;
+    float: left;
+    overflow: visible;
+    z-index: 5;
+    font-size: 13px;
+    text-align: left;
+}
+
+.mmCartContent {
+    padding: 10px 0 5px 20px;
+    overflow: auto;
+}
+
+.mmCartTitle {
+    height: 22px;
+    background-color: #97c0dc;
+    color: #fff;
+    padding: 12px 20px 8px;
+    font-size: 17px;
+    border-left: 1px dotted #dfeffc;
+}
+
+.mini_cart_item {
+    width: 100%;
+    height: 21px;
+	clear: both;
+}
+.mini_cart_item div {float: left;}
+.mini_cart_item_name {width: 60%; }
+.mini_cart_item_count {width: 10%;}
+.mini_cart_item_price {width: 20%;}
+.mini_cart_item_delete {width: 10%;}
+#mini_cart_item_sum {display: none!important;}
+.mini_cart_full_sum {
+	font-weight: bold;
+	color: #005388 !important;
+	padding: 0px 20px 10px; 
+}
+#cart_actions {
+    padding: 10px 20px; 
+}

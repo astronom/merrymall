@@ -1,0 +1,32 @@
+<p class="permalink">
+    <a title="http://symfony-check.org/permalink/change-the-cookie-names" href="/permalink/change-the-cookie-names">permalink</a>
+</p>
+<p>
+    The session-handling mechanism uses a cookie on the client side, and this cookie is called "symfony" by default.
+</p>
+<p>
+    In the 
+    <code>
+        apps/frontend/config/factories.yml
+    </code>
+    file, add for the 
+    <code>
+        all
+    </code>
+    environment:
+</p>
+<pre><code>storage:
+  class: sfSessionStorage
+  param:
+    session_name: my_project
+</code></pre>
+<p>
+    If the sfGuardPlugin is installed, you can modify the "Remember me" cookie name in 
+    <code>
+        myProject/config/app.yml
+    </code>:
+</p>
+<pre><code>all:
+  sf_guard_plugin:
+    remember_cookie_name:   myProjectRememberMe
+</code></pre>

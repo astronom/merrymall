@@ -1,0 +1,38 @@
+mGameRoundRules:
+  Round_1:
+    round:     1
+    money:     2000
+    purchases: 10
+  Round_2:
+    round:     2
+    money:     4000
+    purchases: 20
+  Round_3:
+    round:     3
+    money:     8000
+    purchases: 30
+  Round_4:
+    round:     4
+    money:     15000
+    purchases: 40
+  Round_5:
+    round:     5
+    money:     32000
+    purchases: 50
+  Round_6:
+    round:     6
+    money:     64000
+    purchases: 60
+  Round_7:
+    round:     7
+    money:     125000
+    purchases: 80
+  Round_8:
+    round:     8
+    money:     250000
+    purchases: 100
+  Round_9:
+    round:     9
+    money:     500000
+    purchases: 395
+    

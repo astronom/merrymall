@@ -1,0 +1,95 @@
+#stat-l { background:url(/images/stat/left.jpg) 100% 47px no-repeat; }
+#stat-c { width:1000px; }
+#stat-r { background:url(/images/stat/right.jpg) 0 47px no-repeat; }
+
+.mn1 { height:47px; }
+.mn2 { height:111px; }
+.mn3 { height:54px; background:url(/images/menu.gif) 49px 0 no-repeat; }
+.mn4 { background:url(/images/stat/cen2.gif) 0 0 repeat-x; }
+.mn5 { height:40px; }
+
+.stat1 {background:url(/images/stat/bg1.jpg) no-repeat;}
+.stat2 {background:url(/images/stat/bg2.jpg) 125px 0 no-repeat;}
+.stat3 {background:url(/images/stat/bg3.jpg) 250px 0 no-repeat;}
+.stat4 {background:url(/images/stat/bg4.jpg) 375px 0 no-repeat;}
+.stat5 {background:url(/images/stat/bg5.jpg) 500px 0 no-repeat;}
+.stat6 {background:url(/images/stat/bg6.jpg) 625px 0 no-repeat;}
+.stat7 {background:url(/images/stat/bg7.jpg) 750px 0 no-repeat;}
+.stat8 {background:url(/images/stat/bg8.jpg) 875px 0 no-repeat; position:relative; }
+
+/* mn2 content */
+.stat1, .stat2, .stat3, .stat4, .stat5, .stat6, .stat7, .stat8 {
+	width:100%;
+	height:111px;
+}
+
+.logo { width:320px; text-align:center; position:absolute; left: 366px; top:13px; }
+.date {font-size: 90%; color:#257123;}
+/* mn4 content */
+#centertext { width:1000px; height:100%; background:url(/images/stat/cen1.jpg) top left no-repeat; }
+#centertext .cr4 { padding:0 70px 20px 70px; height: 400px; background:url(/images/stat/cen3.jpg) top right no-repeat; }
+#centertext .cr4 h1 { text-align: left; color: #005388; font-size: 24px; padding-left: 20px; font-weight: normal; }
+#centertext .cr4 div.text { text-align: left; padding: 10px 20px 0px; }
+#centertext .cr5 { width:440px; margin: 0 auto; }
+#centertext .cr5 th { color: #535353; font-size: 13px; font-weight: normal; text-align: left; }
+#centertext .cr5 td { color: #535353; padding:0 0 10px 0; font-size:12px; }
+
+#centertext .cr6 { width:320px; margin: 0 auto; }
+#centertext .cr6 th { color: #535353; font-size: 13px; font-weight: normal; text-align: left; }
+#centertext .cr6 td { color: #535353; padding:0 0 10px 0; font-size:12px; }
+
+#centertext .ra1 { padding:0 0 10px 0; font-size:12px; }
+#centertext .ra2 { padding:3px 5px 10px 0; width:185px; font-size:12px; }
+#centertext .ra3 { padding:0 0 10px 0; vertical-align:middle; }
+#centertext .ra4 { width:110px; }
+#centertext .ra5 { padding:0 0 10px 0; vertical-align:middle; font-size:11px; }
+#centertext .ra6 { padding:0 0 0 139px; }
+
+#centertext .blue { color:#5594be; }
+#centertext .blue45 { color:#0a6093; }
+#centertext .green { color:#507c24; font-size:12px; }
+
+/* Signin inputs */
+#signin_username,
+#signin_password
+{ border:1px solid #7890ae; width:212px; height:21px; }
+
+/* simple input */
+.input { border:1px solid #7890ae; width:212px; height:21px; }
+/* text area */
+.input2 { border:1px solid #7890ae; width:212px; height:60px; }
+/* short input */
+.input3 { border:1px solid #7890ae; width:102px; height:21px; }
+/* simple input */
+.input4 { border:1px solid #7890ae; width:185px; height:21px; }
+
+
+
+/* Register inputs */
+#register_username,
+#register_password,
+#register_password2,
+#register_firstname,
+#register_patronymic,
+#register_lastname,
+#register_email,
+#register_email2,
+#register_phone,
+#register_promocode
+{ border:1px solid #7890ae; width:212px; height:21px; }
+
+#register_address
+{ border:1px solid #7890ae; width:212px; height:60px; }
+
+#register_email { border:1px solid #7890ae; width:212px; height:21px; }
+#register_phone { border:1px solid #7890ae; width:212px; height:21px; }
+textarea#signin_address { border:1px solid #7890ae; width:212px; height:60px; }
+
+/* Список компаний */
+.shops_table {display: block; margin-left: 20px; color: #575757; width: 96%;} 
+.shops_table tr {width: 100%;}
+.shops_table td {padding-right: 20px;}
+.shops_table tr.floor {display: block; padding: 10px 0 10px 0;}
+.shops_table a {color: #575757; font-weight: bold; text-decoration: none;}
+.shops_table a:hover {text-decoration: underline;}
+.separator {display: block; width: 96%; padding: 10px 0px; margin-left: 20px; background: url("/images/stat/dot.gif") 0% 90% repeat-x;}

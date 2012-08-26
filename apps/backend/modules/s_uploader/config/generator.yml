@@ -1,0 +1,34 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ymlCompany
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          yml_company
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        filename: {label: Имя файла}
+        updated_at: {label: Дата обновления}
+      list:
+        title: Загруженные прайсы
+        display: [filename, updated_at]
+        object_actions:
+          uploadXML:
+            label: Загрузить
+          read:
+            label: Открыть прайс
+          _edit:    ~
+          _delete:  ~
+      filter: 
+        class: false
+      form:    ~
+      edit:    ~
+      new:
+        title:  Загрузка прайса

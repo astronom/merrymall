@@ -1,0 +1,3 @@
+#wrapper, #building { width: expression((documentElement.clientWidth||document.body.clientWidth) < 1000 ? '1000px':'100%'); }
+* html #building-container { height: expression((documentElement.clientHeight || document.body.clientHeight) < 400 ? '400px':'100%'); }
+.billboard-container { background:url(../images/billboard_bg.gif) no-repeat; height:211px; line-height:0; width:190px; }

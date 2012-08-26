@@ -1,0 +1,12 @@
+about:
+  enabled:     true
+  with_layout: false
+_companyMenu:
+  enabled:     true
+  with_layout: false
+_randomShops:
+  enabled:     false
+_shopsOnFloor:
+  enabled:     true  
+#_categoriesTree:
+#  enabled:     true

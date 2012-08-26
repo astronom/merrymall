@@ -1,0 +1,7 @@
+all:
+  stylesheets:    [new/admin.css, new/jQuery.treeTable.css]
+
+  javascripts:    [/sfJqueryReloadedPlugin/js/plugins/jquery-ui-1.8.2.custom.min.js, plugin/jquery.treeTable.js, plugin/treeTableDragDrop.js]
+
+  has_layout:     true
+  layout:         layout

@@ -1,0 +1,12 @@
+.page404 {width: 1000px; margin: 5% auto;}
+	.logotip404 {margin: 0 400px;}
+	.main404 { width:1000px; height:330px; margin-top: 15px; background: url("/images/404/line.jpg") 0px 300px no-repeat; z-index: 5;}
+		.girl404, .door404, .boy404 {float: left;}
+		.girl404 {margin-left: -50px; margin-top: 0px;}
+		.door404 { width: 167px; margin: 0 400px;}
+			.door404 .arrow {margin-left: 43px;}
+		.boy404 {margin-left: -95px;}
+		.error-code, .error-code-description , .error-code-human-explain {float: left;}
+		.error-code {color: #de1f4f; font: bold 2.5em/1em Tahoma,serif; text-align: left;}
+		.error-code-description { display: block; padding: 3px 0 0 10px; color: #de1f4f;}
+		.error-code-human-explain {display: block; padding-top: 5px; color: #003455;}

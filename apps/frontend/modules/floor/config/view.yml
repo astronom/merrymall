@@ -1,0 +1,17 @@
+indexSuccess:
+  metas:
+    title:        Этаж - Merry Mall
+    description:  Мерри Молл
+
+  #stylesheets:    [ floor, {floor.ie7.css: {condition: 'lte IE 7'}}]
+
+  javascripts:    [ plugin/jCarouselLite ]
+
+hallSuccess:
+  metas:
+    title:        Холл - Merry Mall
+    description:  Мерри Молл
+
+  stylesheets:    [ bubble ]
+
+  javascripts:    [ plugin/inputlabel, plugin/pngFix ]

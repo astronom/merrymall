@@ -1,0 +1,55 @@
+
+          <p class="permalink">
+        <a title="http://symfony-check.org/permalink/customize-the-credentials-required-page" href="/permalink/customize-the-credentials-required-page">permalink</a>      </p>
+        <p>When a user doesn't have the credentials required for an action, symfony tries to access to the <code>default/secure</code> action.</p>
+
+<p class="illustration">
+  <a href="/images/captures/credentials_required.jpg">
+    <img src="/images/captures/credentials_required_thumb.png" alt="Credentials Required" width="527" height="60">
+  </a>
+</p>
+
+<p>To customize the "Credentials Required" page, add the <code>executeLogin()</code> method in the <code>apps/frontend/modules/default/actions/actions.class.php</code> file:</p>
+
+<pre><code>/**
+ * Warning page for restricted area - requires login
+ *
+ */
+public function executeSecure()
+{
+}
+</code></pre>
+
+<p>Then create the <code>apps/frontend/modules/default/templates/secureSuccess.php</code> template.</p>
+
+<p>If you want, you can grab the <a href="http://svn.symfony-project.com/branches/1.2/lib/controller/default/templates/secureSuccess.php">original file</a> and modify it.</p>
+
+<h3>Display the "Credentials Required" page to test it</h3>
+
+<ol>
+<li>Pass in the production environement</li>
+<li>Login, <strong>but not as super admin</strong>.</li>
+<li><p>In one of your modules, add in <code>apps/frontend/modules/yourModule/config/security.yml</code>:</p>
+
+<pre><code>all:
+  credentials: [ aCredentialYouDontHave ]
+</code></pre></li>
+<li>Clear cache</li>
+<li>Try to access to one of the module actions</li>
+</ol>
+
+<h3>Using an other module</h3>
+
+<p>If you want to use an other module, modify <code>apps/frontend/config/settings.yml</code>:</p>
+
+<pre><code>all:
+  .actions:
+    secure_module: foo   # To be called when a user doesn't have
+    secure_action: bar   # The credentials required for an action
+</code></pre>
+
+<p>Clear your cache.</p>
+
+<pre><code>php symfony cc
+</code></pre>
+    

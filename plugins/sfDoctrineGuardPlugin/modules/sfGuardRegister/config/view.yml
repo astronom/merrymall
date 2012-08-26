@@ -1,0 +1,55 @@
+registerNew:
+  metas:
+    title:        Регистрация - MerryMall
+
+  #stylesheets:    [ auth.css ]
+  javascripts:    []
+
+registerSuccess:
+  metas:
+    title:        Регистрация - MerryMall
+
+  #stylesheets:    [ auth.css ]
+  javascripts:    []
+
+confirmSuccess:
+  metas:
+    title:        Подтверждение регистрации - MerryMall
+
+  #stylesheets:    [ auth.css ]
+  javascripts:    []
+
+confirmInvalid:
+  metas:
+    title:        Подтверждение регистрации - MerryMall
+
+  #stylesheets:    [ auth.css ]
+  javascripts:    []
+
+restorePasswordSuccess:
+  metas:
+    title:        Восстановление пароля - MerryMall
+
+  #stylesheets:    [ auth.css ]
+  javascripts:    []
+
+restorePasswordNew:
+  metas:
+    title:        Восстановление пароля - MerryMall
+
+  #stylesheets:    [ auth.css ]
+  javascripts:    []
+  
+resetPasswordSuccess:
+  metas:
+    title:        Восстановление пароля - MerryMall
+
+  #stylesheets:    [ auth.css ]
+  javascripts:    []
+
+resetPasswordNew:
+  metas:
+    title:        Восстановление пароля - MerryMall
+
+  #stylesheets:    [ auth.css ]
+  javascripts:    []

@@ -1,0 +1,55 @@
+/* Header */
+#header { background:url(/images/top_menu/tm_index_bg.png) repeat-x; height:42px; position:relative; z-index:2; }
+#header .tm2 { width: 1000px; }
+#top-menu .hh1 { background:url(/images/top_menu/h1_t.gif) 0 0 no-repeat !important; }
+#top-menu .hh2 { background:url(/images/top_menu/h2_t.gif) 0 0 no-repeat !important; }
+#top-menu .hh3 { background:url(/images/top_menu/h3_t.gif) 0 0 no-repeat !important; }
+#top-menu .hh1:hover { background:url(/images/top_menu/h1_h.gif) 0 0 no-repeat !important; }
+#top-menu .hh2:hover { background:url(/images/top_menu/h2_h.gif) 0 0 no-repeat !important; }
+#top-menu .hh3:hover { background:url(/images/top_menu/h3_h.gif) 0 0 no-repeat !important; }
+
+/* Sidebar Left */
+#sl { top: 42px !important; }
+#logo { display:block; margin-top:18px; }
+
+/* Sidebar Right */
+#sr { top: 42px !important; }
+
+/* Building layer */
+body { background:#3799df; height: 100% }
+#building-container { display:block; min-height:400px; height:100%; overflow:hidden; position:absolute; width:100%; z-index:1; }
+#building-container #building-layer { bottom:0; display:block; min-width:980px; position:absolute; width:100%; z-index:1; }
+#building-container #building-bg-repeat { background:url(/images/floors/building_bg_repeat.jpg) repeat-x 50% 100%; display:block; width:100%; }
+#building-container #building-bg { background:url(/images/floors/building_bg.jpg) no-repeat 50% 100%; display:block; }
+#building-container #building { display:block; position:relative; top:-23px; width:100%; z-index:1; }
+#building-container #building a.fl { text-decoration: none; width: 100%; height: 100%; line-height: 100%; display: block; }
+#building-container .floor-block { background:url(/images/floors/floors_bg.jpg) no-repeat; cursor:pointer; display:block; margin:0 auto; text-align:center; width:636px; }
+#building-container .floor-inside { background:url(/images/selected_floor_bg_1x1.png); display:none; height:100%; margin:0 auto; width:470px; }
+#building-container .floor-selected .floor-inside { display:block; }
+#building-container .floor-2 .floor-inside,#building-container .floor-3 .floor-inside { width:580px; }
+#building-container p.floor-table { background:url(/images/floor_table_bg.png) no-repeat; color:#fff; height:22px; margin:0 auto; padding-top:3px; position:relative; text-align:center; top:30px; width:77px; }
+#building-container .roof { background-position:50% 0; cursor:auto; height:356px; }
+#building-container .floor-top-2 { background-position:50% -356px; height:86px; }
+#building-container .floor-top-1 { background-position:50% -442px; height:88px; }
+#building-container .floor { background-position:50% -530px; height:87px; }
+#building-container .floor-7 { background-position:50% -617px; height:87px; }
+#building-container .floor-6 { background-position:50% -704px; height:87px; }
+#building-container .floor-5 { background-position:50% -791px; height:87px; }
+#building-container .floor-4 { background-position:50% -878px; height:81px; }
+#building-container .floor-3-4-cornice { background-position:50% -959px; cursor:auto; height:24px; }
+#building-container .floor-3 { background-position:50% -983px; height:91px; }
+#building-container .floor-2 { background-position:50% -1074px; height:89px; }
+#building-container .floor-1-2-cornice { background-position:50% -1163px; cursor:auto; height:25px; }
+#building-container .floor-1-2-tabloid { background-position:50% -1188px; cursor:auto; height:21px; }
+#building-container .floor-1 { background-position:50% -1209px; height:83px; }
+#building-container #tabloid .mask { margin:0 auto; overflow:hidden; position:relative; top:2px; width:465px; height: 17px; text-align: left;}
+#building-container #tabloid ul { list-style-type:none; margin:0; padding:0; position:relative; }
+#building-container #tabloid ul li { margin: 0 10px; padding:0; color:#fff}
+#building-container #tabloid ul span.date { margin-right: 10px;}
+#building-container #tabloid ul span.text { }
+#building-container #tabloid ul a { color:red; }
+#building-container #billboard-layer { height:218px; margin:0 auto; position:relative; width:960px; z-index:2; }
+#building-container .billboard-container { background:url(/images/billboard_bg.png) no-repeat; height:211px; line-height:0; width:190px; }
+#building-container #billboard-left { float:left; }
+#building-container #billboard-right { float:right; }
+#building-container .billboard { padding-left:5px; padding-top:4px; }

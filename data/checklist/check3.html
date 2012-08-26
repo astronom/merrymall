@@ -1,0 +1,57 @@
+
+          <p class="permalink">
+        <a title="http://symfony-check.org/permalink/customize-the-login-required-page" href="/permalink/customize-the-login-required-page">permalink</a>      </p>
+        <p>When a non authenticated user tries to access a page defined as secure in <code>security.yml</code>, symfony tries to access to the <code>default/login</code> action.</p>
+
+<p class="illustration">
+  <a href="/images/captures/login_required.jpg">
+    <img src="/images/captures/login_required_thumb.png" alt="Login Required" width="527" height="60">
+  </a>
+</p>
+
+<p>To customize the "Login Required" page, add the <code>executeLogin()</code> method in the <code>apps/frontend/modules/default/actions/actions.class.php</code> file:</p>
+
+<pre><code>/**
+ * Warning page for restricted area - requires credentials
+ *
+ */
+public function executeLogin()
+{
+}
+</code></pre>
+
+<p>Then create the <code>apps/frontend/modules/default/templates/loginSuccess.php</code> template.</p>
+
+<p>If you want, you can grab the <a href="http://svn.symfony-project.com/branches/1.2/lib/controller/default/templates/loginSuccess.php">original file</a> and modify it.</p>
+
+<h3>Display the "Login Required" page to test it</h3>
+
+<ol>
+<li>Pass in the production environment</li>
+<li>Logout: Use a logout link, or if you don't have one yet, go to your browser preferences and remove all the cookies related to your application domain.</li>
+<li>Try to access to a <a href="http://www.symfony-project.org/book/1_2/06-Inside-the-Controller-Layer#chapter_06_action_security">secure page</a>.</li>
+</ol>
+
+<h3>Using an other module</h3>
+
+<p>If you want to use an other module, modify <code>apps/frontend/config/settings.yml</code>:</p>
+
+<pre><code>all:
+  .actions:
+    login_module: foo   # To be called when a non-authenticated user
+    login_action: bar   # Tries to access a secure page
+</code></pre>
+
+<p>Make sure that in your module, the signin action is <strong>un-secure</strong>. In <code>apps/frontend/modules/foo/config/security.yml</code>:</p>
+
+<pre><code>bar:
+  is_secure: false
+</code></pre>
+
+<p>Clear your cache.</p>
+
+<pre><code>php symfony cc
+</code></pre>
+
+<p><em>Read the <a href="http://www.symfony-project.org/book/1_2/06-Inside-the-Controller-Layer#chapter_06_action_security">related symfony documentation</a></em></p>          
+    

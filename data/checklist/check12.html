@@ -1,0 +1,38 @@
+<p class="permalink">
+    <a title="http://symfony-check.org/permalink/install-a-php-accelerator" href="/permalink/install-a-php-accelerator">permalink</a>
+</p>
+<p>
+    For the production server, you probably want the best performance possible. Installing a <a href="http://en.wikipedia.org/wiki/PHP_accelerator">PHP accelerator</a>
+    will give you the best improvement for your money.
+</p>
+<p>
+    <a href="http://www.php.net/apc">APC</a>
+    is one of the most popular ones.
+</p>
+<h3>On a dedicated server</h3>
+<p>
+    The set up is as simple as :
+</p>
+<pre><code>pecl install apc
+</code></pre>
+<h3>On a shared hosting environment</h3>
+<p>
+    Sometimes the installation is just not possible. Read the documentation.
+</p>
+<h3>If you use the Doctrine ORM</h3>
+<p>
+    You can <a href="http://www.doctrine-project.org/documentation/manual/1_0/en/caching">enable the cache system</a>
+    by adding the following method to 
+    <code>
+        mySfProject/config/ProjectConfiguration.class.php
+    </code>
+    :
+</p>
+<pre><code>/**
+ * Configure the Doctrine engine
+ **/
+public function configureDoctrine(Doctrine_Manager $manager)
+{
+  $manager-&gt;setAttribute(Doctrine::ATTR_QUERY_CACHE, new Doctrine_Cache_Apc());
+}
+</code></pre>

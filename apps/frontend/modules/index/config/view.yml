@@ -1,0 +1,17 @@
+indexSuccess:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        Merry Mall
+    description:  Мерри Молл
+    #keywords:     symfony, project
+    #language:     en
+    #robots:       index, follow
+
+  stylesheets:    [ index, {index.ie6.css: {condition: 'lte IE 6'}}]
+
+  javascripts:    [ index, rmenu, plugin/inputlabel, plugin/pngFix ]
+
+  has_layout:     on
+  layout:         indexLayout

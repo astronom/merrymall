@@ -1,0 +1,75 @@
+indexSuccess:
+  http_metas:
+    content-type: text/html
+
+  stylesheets:    [ new/jquery.lightbox-0.5.css ]
+
+  javascripts:    [ plugin/jquery.lightbox-0.5.js, jquery.paginator.src.js, plugin/mouseWheel, plugin/jsTree/jquery.jstree.js, plugin/jquery.cookie.js ]
+
+  #layout:         companyLayout
+
+officeSuccess:
+  http_metas:
+    content-type: text/html
+
+  stylesheets:    [ new/jquery.lightbox-0.5.css ]
+
+  javascripts:    [ plugin/jquery.lightbox-0.5.js, jquery.paginator.src.js, plugin/mouseWheel, plugin/jsTree/jquery.jstree.js, plugin/jquery.cookie.js ]
+
+itemInfoSuccess:
+  http_metas:
+    content-type: text/html
+
+  stylesheets:    [ new/jquery.lightbox-0.5.css ]
+
+  javascripts:    [ plugin/jquery.lightbox-0.5.js, plugin/jsTree/jquery.jstree.js, plugin/jquery.cookie.js ]
+  
+  #layout:         companyLayout
+
+itemInfoAjaxSuccess:
+  http_metas:
+    content-type: text/html
+
+  stylesheets:    [ company, office, {company.ie.css: {condition: 'lte IE 8'}}, {company.ie6.css: {condition: 'lte IE 6'}} ]
+
+  javascripts:    [ rmenu, plugin/inputlabel, mini_cart, plugin/Groject.ImageSwitch.js ]
+  
+  layout:         false
+  
+aboutSuccess:
+  http_metas:
+    content-type: text/html
+
+  #javascripts:    [ rmenu, plugin/inputlabel, mini_cart, plugin/cookie ]
+  javascripts:    [ plugin/jCarouselLite, plugin/mouseWheel ]
+  #layout:         companyLayout
+  
+newsSuccess:
+  http_metas:
+    content-type: text/html
+
+  #stylesheets:    [ company, office, {company.ie.css: {condition: 'lte IE 8'}}, {company.ie6.css: {condition: 'lte IE 6'}} ]
+
+  javascripts:    [ plugin/jCarouselLite, plugin/mouseWheel ]
+  
+  #layout:         companyLayout
+  
+actionsSuccess:
+  http_metas:
+    content-type: text/html
+
+  #stylesheets:    [ company, office, {company.ie.css: {condition: 'lte IE 8'}}, {company.ie6.css: {condition: 'lte IE 6'}} ]
+
+  javascripts:     [ ]
+  
+  #layout:         companyLayout
+  
+contactSuccess:
+  http_metas:
+    content-type: text/html
+
+  #stylesheets:    [ company, office, {company.ie.css: {condition: 'lte IE 8'}}, {company.ie6.css: {condition: 'lte IE 6'}} ]
+
+  javascripts:    [ plugin/jCarouselLite, plugin/mouseWheel ]
+  
+  #layout:         companyLayout

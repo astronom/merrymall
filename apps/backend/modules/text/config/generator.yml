@@ -1,0 +1,33 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Texts
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          texts
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions:
+        _edit: {label: Редактировать}
+      fields:  ~
+      list:
+        title: Список текстов проекта
+        display: [text, =url]
+        sort: [url, desc]
+        batch_actions: {}
+        object_actions:
+          _edit:  ~        
+      filter:
+        class: false
+      form:
+        class:  BackendTextsForm
+      edit:
+        title: Редактирование текста в "%%url%%"
+        display: [text, url]        
+      new:
+        title: Новый текст       

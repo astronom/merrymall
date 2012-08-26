@@ -1,0 +1,22 @@
+<p class="permalink">
+    <a title="http://symfony-check.org/permalink/escape-your-templates" href="/permalink/escape-your-templates">permalink</a>
+</p>
+<p>
+    <strong>Useless for sf1.3/1.4 projects</strong>
+</p>
+<p>
+    By default, the output escaping is disabled. In the 
+    <code>
+        /apps/frontend/config/settings.yml
+    </code>
+    file, add:
+</p>
+<pre><code>all:
+  .settings:
+    # Output escaping settings
+    escaping_strategy:      true
+    escaping_method:        ESC_SPECIALCHARS
+</code></pre>
+<p>
+    <em>Read the <a href="http://www.symfony-project.org/book/1_2/07-Inside-the-View-Layer#chapter_07_output_escaping">related symfony documentation</a></em>
+</p>

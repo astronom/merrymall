@@ -1,0 +1,75 @@
+/* Backend menu*/
+.menu {
+  background-color:#E7EEF6;
+  width:100%;
+  display: block;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+}
+.menu ul{
+	margin: 0; padding: 0;
+	float: left;}
+.menu ul li{
+	display: inline;}
+.menu ul li a, .menu ul li a:visited {
+  outline: none;
+	float: left; text-decoration: none;
+	color: #464646;
+	padding: 6px 11px;
+	background-color: #E7EEF6;
+  font-weight: bold;
+}
+.menu ul li a:hover, .menu ul li .current{
+  color: #000;
+	background-color:#ddd;}
+
+
+/* Company menu */
+.company-menu {
+  background-color:#E7EEF6;
+  width:100%;
+  display: block;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+}
+.company-menu ul{
+	margin: 0; padding: 0;
+	float: left;}
+.company-menu ul li{
+	display: inline;}
+.company-menu ul li.company-info{
+	float: left; text-decoration: none;
+	color: #464646;
+	padding: 6px 11px;
+	background-color: #FFFDE1;
+  font-weight: bold;
+}
+.company-menu ul li a, .company-menu ul li a:visited {
+  outline: none;
+	float: left; text-decoration: none;
+	color: #464646;
+	padding: 6px 11px;
+	background-color: #E7EEF6;
+  font-weight: bold;
+}
+.company-menu ul li a:hover, .company-menu ul li .current{
+  color: #000;
+	background-color:#ddd;}
+.flash_notice {
+	background-color:#FFFDE1;
+	color:#464646;
+	font-weight:bold;}
+.message {
+	font-size: 1.1em;
+	font-weight:bold;
+	vertical-align: top;
+	width: 300px; height: 30px;}
+	
+	.message img {position: relative; top: 4px;}
+	
+/* Редактирование прайсов */
+.entity {width: 100%; min-height: 60px;}
+.entity div {float: left; display: block; margin: 5px; padding: 10px; background: #ccc; border: 1px solid #000; z-index: 5;}
+.entity div:hover {border: 2px solid #00f; cursor: pointer;}
+.entity div:last-of-type {}	
+

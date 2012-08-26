@@ -1,0 +1,6 @@
+signinSuccess:
+  metas:
+    title:        Авторизация - MerryMall
+
+  #stylesheets:    [ auth.css ]
+  javascripts:    []

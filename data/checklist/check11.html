@@ -1,0 +1,106 @@
+<p class="permalink">
+    <a title="http://symfony-check.org/permalink/delete-backend-php-from-your-uri" href="/permalink/delete-backend-php-from-your-uri">permalink</a>
+</p>
+<p>
+    In the 
+    <code>
+        apps/frontend/config/settings.yml
+    </code>
+    file, you can delete the application name from your uri by activing the 
+    <code>
+        no_script_name
+    </code>
+    option.
+</p>
+<p>
+    This option is enabled for the first generated application (most often, the frontend), but not for the others.
+</p>
+<h3>Why ?</h3>
+<p>
+    Because without the application name, symfony wouldn't know which one to use when the applications share the same domain.
+</p>
+<p>
+    We have to find an other way to let symfony know which application to use.
+</p>
+<p>
+    A solution can be to use several domains :
+</p>
+<ul>
+    <li>
+        http://my-app.com for the frontend
+    </li>
+    <li>
+        http://my-app-backend.com for the backend
+    </li>
+</ul>
+<p>
+    Personnally, I prefer use some sub domains for each application :
+</p>
+<ul>
+    <li>
+        http://my-app.com for the frontend
+    </li>
+    <li>
+        http://admin.my-app.com for the backend
+    </li>
+</ul>
+<h3>If your project is hosted on a dedicated server</h3>
+<p>
+    You juste have to add a new virtual host in 
+    <code>
+        httpd.conf
+    </code>
+    :
+</p>
+<pre><code>&lt;VirtualHost *:80&gt;
+  ServerName admin.my-app.com
+  DirectoryIndex backend.php
+  DocumentRoot "/path/to/the/web/directory"
+  &lt;Directory "/path/to/the/web/directory"&gt;
+    AllowOverride All
+    Allow from All
+  &lt;/Directory&gt;
+  Alias /sf /path/to/the/symfony/data/web/sf
+  &lt;Directory "/path/to/the/symfony/data/web/sf"&gt;
+    AllowOverride All
+    Allow from All
+  &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</code></pre>
+<h3>If your project is hosted on a shared hosting environment</h3>
+<p>
+    In that case, you probably can't access to the 
+    <code>
+        httpd.conf
+    </code>.
+    <br>
+    So let's play with the 
+    <code>
+        /web/.htaccess
+    </code>. Just after :
+</p>
+<pre><code>&lt;IfModule mod_rewrite.c&gt;
+  RewriteEngine On
+</code></pre>
+<p>
+    Add the following lines:
+</p>
+<pre><code># The admin subdomain returns to the backend
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{HTTP_HOST} ^admin\.my-app\..*
+RewriteRule ^(.*)$ backend.php [QSA,L]
+</code></pre>
+<h3>Now, you can modify 
+    <code>
+        settings.yml
+    </code>
+</h3>
+<pre><code>prod:
+  .settings:
+    no_script_name:  true
+</code></pre>
+<p>
+    Don't forget to clear the cache.
+</p>
+<pre><code>php symfony cc
+</code></pre>

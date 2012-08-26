@@ -1,0 +1,70 @@
+.polzbd1 { background:url(/images/reception/polzleft.jpg) right 42px no-repeat; }
+.polzbd3 { background:url(/images/reception/polzright.jpg) left 42px no-repeat; }
+.kabbd2 { width:1000px; }
+
+.mn2polz { height:348px; }
+.logopolz { position:absolute; top:0; left:440px; }
+
+.mn4polz { background:url(/images/reception/polzcen2.gif) top left repeat-x; }
+.centerpolz { width:1000px; height:100%; background:url(/images/reception/polzcen1.gif) top left no-repeat; }
+.cr9 { background:url(/images/reception/polzcen3.gif) top right no-repeat; padding:0 55px 0 61px; }
+.tab41 { width:217px; padding:0 20px 10px 15px; background:url(/images/reception/polosochka.gif) top right repeat-y;}
+.tab42 { width:373px; padding:0 20px 10px 15px; background:url(/images/reception/polosochka.gif) top right repeat-y;}
+.tab43 { width:184px; padding:0 20px 10px 20px; }
+
+.tab41 a, .tab42 a, .tab43 a {
+	color:#005388;
+	font-family:Franklin Gothic Medium Cond;
+	font-size:16px;
+	text-decoration:none;
+	text-transform:uppercase;
+}
+.tab44 { padding:0 20px 0 15px; background:url(/images/reception/polosochka.gif) top right repeat-y; font-size:12px; }
+.tab45 { padding:0 20px 0 15px; background:url(/images/reception/polosochka.gif) top right repeat-y; font-size:12px; color: #535353;}
+.tab46 { padding:0 20px 0 20px; color: #535353;}
+.blue45 { color:#0a6093; }
+
+.polz1 {background:url(/images/reception/polz1.jpg) no-repeat;}
+.polz2 {background:url(/images/reception/polz2.jpg) 125px top no-repeat;}
+.polz3 {background:url(/images/reception/polz3.jpg) 250px top no-repeat;}
+.polz4 {background:url(/images/reception/polz4.jpg) 375px top no-repeat;}
+.polz5 {background:url(/images/reception/polz5.jpg) 500px top no-repeat;}
+.polz6 {background:url(/images/reception/polz6.jpg) 625px top no-repeat;}
+.polz7 {background:url(/images/reception/polz7.jpg) 750px top no-repeat;}
+.polz8 {background:url(/images/reception/polz8.jpg) 875px top no-repeat; position:relative; }
+
+.polz1, .polz2, .polz3, .polz4, .polz5, .polz6, .polz7, .polz8 {
+	width:100%;
+	height:348px;
+}
+
+.formochka { width:560px; height:165px; top:151px; left:384px; position:absolute; }
+.for1 { top:14px; left:25px; position:absolute; color: #535353; }
+.for2 { top:35px; left:25px; position:absolute; border:1px solid #6b87a8; width:517px; height:82px; }
+.for3 { top:126px; right:16px; position:absolute; }
+
+.novosti { width:217px; margin-top: -17px; }
+.ni1, .ni2, .ni3, .tab45, .tab46 {vertical-align: top;}
+.ni1 {
+	width:34px;
+	padding:13px 0 16px 0;
+	background:url(/images/reception/polzpoloska.gif) bottom left repeat-x;
+	color:#257123;
+	font-size:27px;
+}
+.ni2 {
+	width:17px;
+	padding:17px 0 16px 0;
+	background:url(/images/reception/polzpoloska.gif) bottom left repeat-x;
+	font-size:11px;
+	color:#2775a8;
+	line-height:12px;
+} 
+.ni3 { padding:16px 0 16px 0; background:url(/images/reception/polzpoloska.gif) bottom left repeat-x; font-size:11px; color: #535353;}
+.ni4 { padding:10px 0 0 0; font-size:11px; }
+
+.ai1 { width:118px; height:113px; padding:0 0 16px 0; vertical-align:middle; text-align:center; background:url(/images/reception/polzimg.gif) top left no-repeat; }
+.ai2 { padding:5px 0 22px 10px; font-size:11px; }
+.ai3 { font-size:11px; text-align:center; }
+
+.opros { margin:6px 0 12px 0; }

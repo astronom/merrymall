@@ -1,0 +1,36 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Floor
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          floor
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        text:  {label: Название этажа}
+        type:  {label: Тип этажа}
+        position: {label: Позиция}
+      list:
+        title: Список Этажей
+        max_per_page: 40
+        sort: [position, ASC]
+        display: [=text, type, position]
+        object_actions:
+          promote:
+            action: demote
+          demote:
+            action: promote
+          _edit:      ~
+          _delete:    ~
+      filter:
+        class: false
+      form:    ~
+      edit:    ~
+      new:     ~

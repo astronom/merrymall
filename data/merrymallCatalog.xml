@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:noNamespaceSchemaLocation="merrymallCatalog.xsd">
+  <!-- Дерево категорий -->
+  <categories>
+    <category id="1">Музыкальные инструменты</category>
+    <category id="2" parent_id="1">Гитары</category>
+    <category id="3" parent_id="2">Электрогитары</category>
+    <category id="4" parent_id="2">Аккустические гитары</category>
+    <category id="5" parent_id="1">Клавишные</category>
+    <category id="6" parent_id="5">Синтезаторы</category>
+    <category id="7" parent_id="5">Цифровые пианино</category>
+  </categories>
+  <!-- Товары -->
+  <items>
+    <item>
+      <category_id>3</category_id> <!-- Id категории -->
+      <brand>Ibanez</brand> <!-- Бренд товара, если есть -->
+      <name>IBANEZ GRX20 BLACK NIGHT</name> <!-- Название -->
+      <price>6400</price> <!-- Цена -->
+      <stock>12</stock> <!-- Количество -->
+      <description>Недорогая электрогитара Ibanez GRX-20 – инструмент для начинающих музыкантов.</description> <!-- Описание -->
+      <image>http://www.muztorg.ru/view.php?pic=news/cat_img/D000101.jpg</image> <!-- Ссылка на картинку -->
+      <!-- Свойства товара -->
+      <properties>
+        <property name="цвет">черный</property>
+        <property name="гриф">клен</property>
+        <property name="корпус">липа</property>
+        <property name="количество ладов">22</property>
+      </properties>
+      <!-- Варианты товара (например размеры одежды, или другое издание), если есть -->
+      <item_variant>
+        <name>IBANEZ GRX20 BLACK NIGHT (подарочное издание)</name> <!-- Название варианта -->
+        <price>7400</price> <!-- Цена -->
+        <stock>3</stock> <!-- Количество -->
+      </item_variant>
+    </item>
+    <item>
+      <category_id>7</category_id>
+      <brand>Yamaha</brand>
+      <name>YAMAHA P-85</name>
+      <price>27000</price>
+      <stock>4</stock>
+      <description>Инструмент имеет 50 встроенных песен для обучения и развлечений.</description>
+      <image>http://www.muztorg.ru/view.php?pic=news/cat_img/A023110.jpg</image>
+      <properties>
+        <property name="цвет">черный</property>
+        <property name="клавиатура">88-нотная</property>
+        <property name="темп метронома">32-280</property>
+        <property name="вес">11 кг</property>
+      </properties>
+    </item>
+  </items>
+</catalog>

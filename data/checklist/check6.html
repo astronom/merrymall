@@ -1,0 +1,39 @@
+
+          <p class="permalink">
+        <a title="http://symfony-check.org/permalink/customize-the-website-temporarily-unavailable-page" href="/permalink/customize-the-website-temporarily-unavailable-page">permalink</a>      </p>
+        <p>A symfony website can be displayed as unavailable:</p>
+
+<ul>
+<li>When an application has been disable by <code>php symfony project:disable</code></li>
+<li>During the cache clearing, if the <code>check_lock</code> option is checked in <code>settings.yml</code></li>
+</ul>
+
+<p>In these cases, symfony looks for a <code>unavailable.php</code> file and let you choose where you prefer to put it:</p>
+
+<ol>
+<li><p>At <code>mySfProject/apps/frontend/config/unavailable.php</code></p>
+
+<p>Useful if you want to have a different version for each application</p></li>
+<li><p>In <code>mySfProject/config/unavailable.php</code></p>
+
+<p>The main configuration folder of your project</p></li>
+</ol>
+
+<p class="illustration">
+  <a href="/images/captures/website_unavailable.jpg">
+    <img src="/images/captures/website_unavailable_thumb.png" alt="Website Temporarily Unavailable" width="527" height="60">
+  </a>
+</p>
+
+<p>If you want, you can grab the <a href="http://svn.symfony-project.com/branches/1.2/lib/exception/data/unavailable.php">original file</a> and modify it.</p>
+
+<p>Don't forget to clear your cache.</p>
+
+<h3>Display the "Website Temporarily Unavailable" page to test it</h3>
+
+<p>Disable your frontend in dev environement.</p>
+
+<pre><code>  php symfony project:disable frontend dev
+</code></pre>
+
+    

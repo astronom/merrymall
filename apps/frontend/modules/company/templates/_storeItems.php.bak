@@ -1,0 +1,35 @@
+<?php use_helper('Text','Price') ?>
+
+<?php foreach ($items as $item): ?>
+<?php $itemVariant = $item->getSItemVariants()?>
+<?php if($itemVariantId = $itemVariant[0]->getId()):?>
+<?php else: $itemVariantId=0; ?>
+<?php endif; ?>
+<div class="store-item">
+<?php $wishlist = $itemVariant[0]->getSWishlist()?>
+
+<?php if(!$wishlist[0]->getId()):?>
+  <div id="addwish<?php echo $itemVariantId ?>">
+    <?php echo link_to(image_tag('/images/icons/clipboard_16x16.png', array('title' => 'Wishlist')),
+                      'wishlist_add',array('item_variant_id' => $itemVariantId),
+                      array('class' => 'store-item-wishlist', 'onClick' => 'add_wishlist_item('.$itemVariantId.'); return false;')) ?>
+  </div>
+<?php else: ?>
+  <a class="store-item-wishlist" href="<?php echo url_for('@private_area')?>">
+  <?php echo image_tag('/images/icons/check_mark_16x16.png', array('title' => 'Посмотреть вишлист'))?>
+  </a>
+<?php endif;?>
+<?php if($itemVariant) echo price($itemVariant[0]->getPrice(), false, true )?>
+                  <?php echo link_to(image_tag('/images/icons/cart_32x32.png', array('alt_title' => 'Положить в корзину')),
+                             'cart_add',array('item_variant_id' => $itemVariantId, 'count' => 1),
+                                      array('class' => 'add_cart','onClick' => 'open_cart_item(this,'.$itemVariantId.'); return false;')) ?>
+				  <?php include_partial('mGameButton/gameCartButton', array('itemVariantId' => $itemVariantId)) ?>
+  <div class="store-item-image">
+  <a title="<?php echo $item->getName() ?>" class="zoomin_company" href="<?php echo $item->sImages[0]->getImageUrl() ?>"></a>
+  <a href="<?php echo url_for('item_info',$item) ?>" title="<?php echo $item->getName(); ?>">
+    <?php echo image_tag($item->getThumbnailUrl(array('width'=> '150', 'height' => '140')), array('alt' => $item->getName())) ?>
+  </a>
+</div>
+<a class="store-item-name" href="<?php echo url_for('item_info', $item) ?>" title="<?php echo $item->getName(); ?>"><?php echo truncate_text($item->getName(),32); ?></a>
+</div>
+<?php endforeach; ?>

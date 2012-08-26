@@ -1,0 +1,20 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        Панель Администратора Merry Mall
+    #description:  symfony project
+    #keywords:     symfony, project
+    language:     ru
+    #robots:      index, follow
+
+  stylesheets:    [/sfDoctrinePlugin/css/global.css, /sfDoctrinePlugin/css/default.css, /csDoctrineActAsSortablePlugin/css/sortable, /css/new/admin.css, backend.css]
+
+  javascripts:    [http://ajax.microsoft.com/ajax/jQuery/jquery-1.5.min.js]
+
+  has_layout:     true
+  layout:         layout

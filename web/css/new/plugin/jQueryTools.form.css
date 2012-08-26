@@ -1,0 +1,79 @@
+/* form style */
+.order-form {
+	padding:15px 20px; 
+	color:#005388;
+	width:400px;
+	margin:0 auto;
+	position:relative;
+} 
+
+/* nested fieldset */
+.order-form fieldset {
+	border:0;
+	margin:0;
+	padding:0;
+}
+
+/* typography */
+.order-form h3 	{ color:#eee; margin-top:0px; }
+.order-form p 	{ font-size:11px; }
+
+
+/* input field */
+
+.order-form input, .order-form textarea {
+	padding:3px;
+	font-size:14px;
+	text-align: left;
+}
+.order-form input:focus, 
+.order-form input:active,
+.order-form textarea:focus,
+.order-form textarea:active { border: 2px solid #53a1c3; }
+
+/* button */
+.order-form button {
+	outline:0;
+	border:1px solid #666;	
+}
+
+
+/* error message */
+.error {
+	min-height:15px;
+	background-color:#FFFE36;
+	font-size:11px;
+	border:1px solid #E1E16D;
+	padding:4px 10px;
+	color:#000;
+	display:none;
+	z-index: 99;	
+	
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px; 
+	-moz-border-radius-bottomleft:0;
+	-moz-border-radius-topleft:0;	
+	-webkit-border-bottom-left-radius:0; 
+	-webkit-border-top-left-radius:0;
+	
+	-moz-box-shadow:0 0 6px #ddd;
+	-webkit-box-shadow:0 0 6px #ddd;	
+}
+
+.error p {
+	margin:0;		
+}
+
+/* field label */
+label {
+	display:block;
+	font-size:13px;
+}
+
+#terms label {
+	float:left;
+}
+
+#terms input {
+	margin:0 5px;
+}

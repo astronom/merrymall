@@ -1,0 +1,89 @@
+<?php use_stylesheet('new/game/game_mini_cart.css')?>
+<?php use_javascript('game/game_mini_cart') ?>
+<?php use_helper('Price') ?>
+<div id="gameMiniCart" class="game-mini-cart-position" title="Игровая корзина">
+  <div id="game_cart_button" class="game-cart-button">
+    <span id="game_mini_cart_items_count" class="cart_items_count"><?php echo count($cartItems) ?></span>
+  </div>
+  <div id="mmCart" class="game-mini-cart">
+    <div class="game-mini-cart-title"><b>Игровая корзина</b></div>
+    <div id="game_mini_cart_content" class="game-mini-cart-content">
+   <?php //Если в корзине пусто - выводим сообщение: ?>
+    <?php //if($companies_count == 0): ?>
+<!--      <div id="game_cart_empty">Ваша корзина пуста</div>-->
+<!--    </div>-->
+    <?php //else: ?>
+    <?php //Выводим корзину: ?>
+      <?php //Итоговая стоимсоть товаров в корзине
+            $fullSum = 0.00;  ?>
+
+      <?php //Вытаскиваем сами позиции корзины?>
+      <?php foreach($cartItems as $cartItem): ?>
+          <div id="game_mini_cart_item<?php echo $cartItem->getId() ?>" class="game-mini-cart-item">
+		  	<div class="game-mini-cart-item-name">
+		      <a id="show_item" title="<?php echo $cartItem->getSItemVariant()->getSItem()->getName() ?>" href="<?php echo url_for('item_info',$cartItem->getSItemVariant()->getSItem()) ?>"><?php echo $cartItem->getSItemVariant()->getSItem()->getName() ?></a>
+		  	</div>
+		  	<div class="game-mini-cart-item-price">
+              <?php echo price($cartItem->getPrice()) ?>
+          	</div>
+          	<div class="game-mini-cart-item-delete">
+              <?php echo jq_link_to_remote(image_tag('icons/delete_16x16.png', array('alt' => 'X', 'title' => 'Удалить', 'size' => '12x12')),
+                                           array(
+                                           'url'      => '@game_cart_delete?id='.$cartItem->getId(),
+                                           'method'   => 'GET',
+                                           'dataType' => 'json',
+                                           'csrf'     => true,
+                                           'before'   => '$("#game_mini_cart_items_count").html(loader);',
+                                           'success'  => 'game_remove_cart_item('.$cartItem->getId().',data)',
+                                       	   'error'	  => 'error_message()'
+                                           ),
+                                           array(
+                            			   'href'  => url_for('game_cart_delete',$cartItem)
+                                           )
+              )?>
+            </div>
+            <div id="game_mini_cart_item_sum" class="hide"><?php echo $cartItem->getPrice() ?></div>
+          </div>
+    <?php $fullSum += $cartItem->getPrice(); ?>
+    <?php endforeach; ?>
+
+    </div>
+    <h3 id="game_mini_cart_full_sum" class="game-mini-cart-item-full-sum">Сумма заказа: <?php echo  price($fullSum,false,true,'span') ?></h3>
+    <h3><?php echo jq_link_to_remote('Оформить покупки',
+                                           array(
+                                           'url'      => '@game_cart_checkout',
+                                           'method'   => 'GET',
+                                           'dataType' => 'json',
+                                           'csrf'     => true,
+                                           'before'   => '$("#game_mini_cart_items_count").html(loader);',
+                                           'success'  => 'game_checkout_cart(data)',
+                                       	   'error'	  => 'error_message(data)'
+                                           ),
+                                           array(
+                            			   'href'  => url_for('@game_cart_checkout'),
+                                           'class' => 'game-mini-cart-item-full-sum'
+                                           )
+              )?>
+
+  <?php //endif; ?>
+    <div id="cart_actions" <?php //if($companies_count == 0) echo 'class="hide"'?>>
+      <?php //echo link_to(image_tag('privateArea/show_order_button.png',array('alt_title' => 'Оформить заказ')),
+           //                     'private_area')?>
+      <?php //echo jq_link_to_remote('Очистить корзину',
+//                                   array(
+//                                   'url'      => '@cart_clean',
+//                                   'method'   => 'GET',
+//                                   'dataType' => 'json',
+//                                   'csrf'     => true,
+//                                   'before'   => '$("#cart_items_count").html(loader);',
+//                                   'success'  => 'clean_cart(data)',
+//                                   'error'	  => 'error_message()'
+//                                   ),
+//                                   array(
+//                            	   'href'  => url_for('@cart_clean'),
+//                                   'style' => 'float: right;'
+//                                   )
+      //) ?>
+    </div>
+</div>
+</div>

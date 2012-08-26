@@ -1,0 +1,17 @@
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:         Мерри Молл
+    description:   Виртуальный торговый центр Мерри Молл
+    #keywords:     symfony, project
+    language:      ru
+    robots:        index, follow
+
+  stylesheets:    [ new/base.css, new/main.css, {new/ie.css: {condition: 'lte IE 9'}}, {new/cssf-ie6.css: {condition: 'IE 6'}}, {new/cssf-ie7.css: {condition: 'IE 7'}} ]
+
+  javascripts:    []
+
+  has_layout:     true
+  layout:         newLayout

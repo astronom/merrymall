@@ -1,0 +1,9 @@
+
+rendering: ~
+remember_me:
+  class: sfGuardRememberMeFilter
+anonymous_customer:
+  class: amAnonymousCustomerFilter
+security:  ~
+cache:     ~
+execution: ~

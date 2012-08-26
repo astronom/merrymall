@@ -1,0 +1,34 @@
+
+          <p class="permalink">
+        <a title="http://symfony-check.org/permalink/customize-the-oops-an-error-occurred-page" href="/permalink/customize-the-oops-an-error-occurred-page">permalink</a>      </p>
+        <p>This is the page displayed in the production environment when symfony catches an error.</p>
+
+<p class="illustration">
+  <a href="/images/captures/error.jpg">
+    <img src="/images/captures/error_thumb.png" alt="Oops! An Error Occurred" width="527" height="60">
+  </a>
+</p>
+
+<p>Symfony looks for a <code>error.html.php</code> file and let you choose where you prefer to put it:</p>
+
+<ol>
+<li><p>At <code>mySfProject/apps/frontend/config/error/error.html.php</code></p>
+
+<p>Useful if you want to have a different version for each application</p></li>
+<li><p>At <code>mySfProject/config/error/error.html.php</code></p>
+
+<p>The main configuration folder of your project</p></li>
+</ol>
+
+<p>If you want, you can grab the <a href="http://svn.symfony-project.com/branches/1.2/lib/exception/data/error.html.php">original file</a> and modify it.</p>
+
+<h3>Display the "Oops! An Error Occurred" page to test it</h3>
+
+<p>In an action that works fine, add on top:</p>
+
+<pre><code>throw new Exception('Only for test, don\'t forget to remove it!');
+</code></pre>
+
+<p>Test the related page in the <strong>production</strong> environement.</p>
+          
+    

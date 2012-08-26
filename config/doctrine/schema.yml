@@ -1,0 +1,1095 @@
+# все таблицы имеют префикс mm_
+News:
+  actAs: 
+    Timestampable: ~
+    Sluggable:
+      name:      title_slug
+      unique:    true
+      fields:    [title]
+      canUpdate: true
+      builder:   [SlugifyClass, slugify]
+  tableName:          mm_news
+  columns:
+    id:
+      type:           integer(4)
+      notnull:        true
+      unsigned:       true
+      primary:        true
+      autoincrement:  true
+    title:
+      type:           string(255)
+      notnull:        true
+    text:
+      type:           blob
+      notnull:        true
+    date:
+      type:           date
+    company_id:
+      type:           integer(3)
+      notnull:        false
+      unsigned:       true
+  relations:
+    Company:
+      onDelete:       CASCADE
+      local:          company_id
+      foreign:        id
+      foreignAlias:   News
+  indexes:
+    company_id_idx:
+      fields:         [company_id]
+    title_slug_idx:
+      fields:         [title_slug]
+
+Actions:
+  actAs:
+    Timestampable: ~
+    Sluggable:
+      name:      title_slug
+      unique:    true
+      fields:    [title]
+      canUpdate: true
+      builder:   [SlugifyClass, slugify]
+  tableName:          mm_actions
+  columns:
+    id:
+      type:           integer(4)
+      notnull:        true
+      unsigned:       true
+      primary:        true
+      autoincrement:  true
+    title:
+      type:           string(255)
+      notnull:        true
+    text:
+      type:           blob
+      notnull:        true
+    logo:
+      type:           string(255)
+      unique:         true
+    company_id:
+      type:           integer(3)
+      notnull:        false
+      unsigned:       true
+    is_active:
+      type:           enum
+      values:
+        - true
+        - false
+  relations:
+    Company:
+      onDelete:       CASCADE
+      local:          company_id
+      foreign:        id
+      foreignAlias:   Actions
+  indexes:
+    company_id_idx:
+      fields:         [company_id]
+    is_active_idx:
+      fields:         [is_active]
+    title_slug_idx:
+      fields:         [title_slug]
+
+      
+
+# Текстовые блоки: О проекте, Реклама, Арендаторам
+Texts:
+  actAs: [Timestampable]
+  tableName:          mm_texts
+  columns:
+    id:
+      type:           integer(1)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+    text:
+      type:           clob
+    url:
+      type:           enum
+      values:
+        - about
+        - add
+        - rent
+
+# этажи, корнизы, блоки
+Floor:
+  actAs: 
+    Timestampable: 
+    Sortable:      
+  tableName:          mm_floors
+  columns:
+    id:
+      type:           integer(1)
+      notnull:        true
+      unsigned:       true
+      primary:        true      
+      autoincrement:  true
+    type:
+      type:           enum
+      values:
+        - floor
+        - cornice
+        - tabloid
+        - roof
+      notnull:        true
+    text:
+      type:           string(255)
+    class:
+      type:           string(255)
+      notnull:        true
+    has_companies:
+      type:           boolean
+      default:        false
+    url:
+      type:           string(255)
+  indexes:
+    url_idx:
+      fields:         [url]
+    type_idx:
+      fields:         [type]
+
+# компании
+Company:
+  actAs:
+    Timestampable:
+    Sortable:
+      uniqueBy:       [floor_id]
+  tableName:          mm_companies
+  columns:
+    id:
+      type:           integer(3)
+      notnull:        true
+      unsigned:       true
+      primary:        true
+      autoincrement:  true
+    name:
+      type:           string(255)
+      notnull:        true
+    url:
+      type:           string(255)
+      notnull:        true
+      unique:         true
+    type:
+      type:           enum
+      values:
+        - office
+        - store
+        - unavailable
+      notnull:        true
+    has_logo:
+      type:           boolean
+      notnull:        true
+      default:        false
+    has_shopwindow:
+      type:           boolean
+      notnull:        true
+      default:        false
+    floor_id:
+      type:           integer(1)
+      notnull:        true
+      unsigned:       true
+  relations:
+    Floor:
+      onDelete:       CASCADE
+      local:          floor_id
+      foreign:        id
+      foreignAlias:   Companies
+  indexes:
+    url_idx:
+      fields:         [url]
+    floor_id_idx:
+      fields:         [floor_id]
+
+#Профиль компании
+CompanyProfile:
+  actAs: [Timestampable]
+  tableName:          mm_companies_profiles
+  columns:
+    id:
+      type:           integer(3)
+      notnull:        true
+      unsigned:       true
+      primary:        true      
+      autoincrement:  true
+    company_id:
+      type:           integer(3)
+      notnull:        true
+      unsigned:       true
+    description:
+      type:           clob
+    news:
+      type:           clob
+    actions:
+      type:           clob
+    contacts:
+      type:           clob
+    phone:
+      type:           string(255)
+    self_delivery_address:
+      type:           string(255)
+  relations:
+    Company:
+      onDelete:       CASCADE
+      local:          company_id
+      foreign:        id
+      foreignAlias:   Profile
+      foreignType:    one
+  indexes:
+    company_id_idx:
+      fields:         [company_id]
+
+# Тежики, любимые
+sTag:
+  actAs:
+    Timestampable:
+    Sortable:
+      uniqueBy: [parent_id]
+  tableName:          mm_s_tags
+  columns:
+    id:
+      type:           integer(11)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+    name:
+      type:           string(255)
+      notnull:        true
+    parent_id:
+      type:           integer(11)
+      default:        null
+  relations:
+    Parent:
+      class:          sTag
+      onDelete:       CASCADE
+      local:          parent_id
+      foreign:        id
+      foreignAlias:   Children
+    sItems:
+      class:          sItem
+      refClass:       sItemTag
+      local:          tag_id
+      foreign:        item_id
+      foreignAlias:   sTags
+
+# таблицы магазина, имеют префикс mm_s_
+# категории
+sCategory:
+  actAs:
+    Timestampable:
+    NestedSet:
+      hasManyRoots: true
+      rootColumnName: root_id
+  tableName:          mm_s_categories
+  columns:
+    id:
+      type:           integer(11)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+    name:
+      type:           string(255)
+      notnull:        true
+    company_id:
+      type:           integer(3)
+      notnull:        true
+      unsigned:       true
+  relations:
+    sProperties:
+      class:          sProperties
+      refClass:       sPropertyCategory
+      local:          category_id
+      foreign:        property_id
+      foreignAlias:   sCategory
+    Company:
+      onDelete:       CASCADE
+      local:          company_id
+      foreign:        id
+      foreignAlias:   sCategories
+  indexes:
+    company_id_idx:
+      fields:         [company_id]
+    nestedset_lft_idx:
+      fields:         [lft]
+
+# бренды
+sBrand:
+  actAs: [Timestampable]
+  tableName:          mm_s_brands
+  columns:
+    id:
+      type:           integer(11)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+    name:
+      type:           string(255)
+      notnull:        true
+    company_id:
+      type:           integer(3)
+      notnull:        true
+      unsigned:       true
+  relations:
+    Company:
+      onDelete:       CASCADE
+      local:          company_id
+      foreign:        id
+      foreignAlias:   sBrands
+  indexes:
+    company_id_idx:
+      fields:         [company_id]
+
+# свойства
+sProperty:
+  actAs: [Timestampable]
+  tableName:          mm_s_properties
+  columns:
+    id:
+      type:           integer(11)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+    name:
+      type:           string(255)
+      notnull:        true
+    values_list:
+      type:           clob
+    company_id:
+      type:           integer(3)
+      notnull:        true
+      unsigned:       true
+  relations:
+    sCategories:
+      class:          sCategory
+      refClass:       sPropertyCategory
+      local:          property_id
+      foreign:        category_id
+      foreignAlias:   sProperties
+    Company:
+      onDelete:       CASCADE
+      local:          company_id
+      foreign:        id
+      foreignAlias:   sProperties
+  indexes:
+    company_id_idx:
+      fields:         [company_id]
+
+# отношение многие ко многим
+# свойства - категории
+sPropertyCategory:
+  actAs: [Timestampable]
+  tableName:          mm_s_property_category_map
+  columns:
+    id:
+      type:           integer(11)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+    property_id:
+      type:           integer(11)
+      notnull:        true
+    category_id:
+      type:           integer(11)
+      notnull:        true
+  relations:
+    sProperty:
+      onDelete:       CASCADE
+      local:          property_id
+      foreign:        id
+    sCategory:
+      onDelete:       CASCADE
+      local:          category_id
+      foreign:        id
+
+
+# товары (или услуги)
+sItem:
+  actAs:
+    Timestampable:
+    Sortable:
+      uniqueBy: [category_id]
+  tableName:          mm_s_items
+  columns:
+    id:
+      type:           integer(11)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+    name:
+      type:           string(255)
+      notnull:        true
+    description:
+      type:           clob
+    is_enabled:
+      type:           boolean
+      notnull:        true
+      default:        true
+    category_id:
+      type:           integer(11)
+      notnull:        true
+    brand_id:
+      type:           integer(11)
+      default:        null
+    company_id:
+      type:           integer(3)
+      notnull:        true
+      unsigned:       true
+  relations:
+    sCategory:
+      onDelete:       CASCADE
+      local:          category_id
+      foreign:        id
+      foreignAlias:   sItems
+    sBrand:
+      onDelete:       SET NULL
+      local:          brand_id
+      foreign:        id
+      foreignAlias:   sItems
+    sTags:
+      class:          sTag
+      refClass:       sItemTag
+      local:          item_id
+      foreign:        tag_id
+      foreignAlias:   sItems
+    Company:
+      onDelete:       CASCADE
+      local:          company_id
+      foreign:        id
+      foreignAlias:   sItems
+  indexes:
+    category_id_idx:
+      fields:         [category_id]
+    brand_id_idx:
+      fields:         [brand_id]
+    company_id_idx:
+      fields:         [company_id]
+    enabled_idx:
+      fields:         [is_enabled]
+
+# таблица отношений итем-тег
+sItemTag:
+  actAs: [Timestampable]
+  tableName:          mm_s_item_tag_map
+  columns:
+    id:
+      type:           integer(11)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+    item_id:
+      type:           integer(11)
+      notnull:        true
+    tag_id:
+      type:           integer(11)
+      notnull:        true
+  relations:
+    sItem:
+      onDelete:       CASCADE
+      local:          item_id
+      foreign:        id
+    sTag:
+      onDelete:       CASCADE
+      local:          tag_id
+      foreign:        id
+
+
+# товары (или услуги)
+sItemVariant:
+  actAs:
+    Timestampable:
+    Sortable:
+      uniqueBy: [item_id]
+  tableName:          mm_s_item_variants
+  columns:
+    id:
+      type:           integer(4)
+      notnull:        true
+      unsigned:       true
+      primary:        true
+      autoincrement:  true
+    name:
+      type:           string(255)
+      default:        null
+    price:
+      type:           decimal(10,2)
+      notnull:        true
+    stock:
+      type:           integer(12)
+      default:        null
+    is_main:
+      type:           boolean
+      notnull:        true
+      default:        false
+    item_id:
+      type:           integer(11)
+      notnull:        true
+    company_id:
+      type:           integer(3)
+      notnull:        true
+      unsigned:       true
+  relations:
+    sItem:
+      onDelete:       CASCADE
+      local:          item_id
+      foreign:        id
+      foreignAlias:   sItemVariants
+    Company:
+      onDelete:       CASCADE
+      local:          company_id
+      foreign:        id
+      foreignAlias:   sItemVariants
+  indexes:
+    item_id_idx:
+      fields:         [item_id]
+    company_id_idx:
+      fields:         [company_id]
+    main_ids:
+      fields:         [is_main]     
+
+# значения свойств
+sPropertyValue:
+  actAs: [Timestampable]
+  tableName:          mm_s_properties_values
+  columns:
+    id:
+      type:           integer(11)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+    value:
+      type:           string(255)
+      notnull:        true
+    property_id:
+      type:           integer(11)
+      notnull:        true
+    item_id:
+      type:           integer(11)
+      notnull:        true
+    company_id:
+      type:           integer(3)
+      notnull:        true
+      unsigned:       true
+  relations:
+    sProperty:
+      onDelete:       CASCADE
+      local:          property_id
+      foreign:        id
+      foreignAlias:   sItems
+    sItem:
+      onDelete:       CASCADE
+      local:          item_id
+      foreign:        id
+      foreignAlias:   sProperties
+    Company:
+      onDelete:       CASCADE
+      local:          company_id
+      foreign:        id
+      foreignAlias:   sPropertiesValues
+  indexes:
+    item_id_idx:
+      fields:         [item_id]
+    company_id_idx:
+      fields:         [company_id]
+
+# картинки товаров
+sImage:
+  actAs: [Timestampable]
+  tableName:          mm_s_images
+  columns:
+    id:
+      type:           integer(11)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+    url:
+      type:           string(255)
+    is_main:
+      type:           boolean
+      notnull:        true
+      default:        false
+    item_id:
+      type:           integer(11)
+      notnull:        true
+    company_id:
+      type:           integer(3)
+      notnull:        true
+      unsigned:       true
+  relations:
+    sItem:
+      onDelete:       CASCADE
+      local:          item_id
+      foreign:        id
+      foreignAlias:   sImages
+    Company:
+      onDelete:       CASCADE
+      local:          company_id
+      foreign:        id
+      foreignAlias:   sImages
+  indexes:
+    company_id_idx:
+      fields:         [company_id]
+    item_id_idx:
+      fields:         [item_id]
+    main_idx:
+      fields:         [is_main]
+      
+
+# корзина
+# Изменена структура
+# Описать окончательный вариант
+sCart:
+  actAs: [Timestampable]
+  tableName:          mm_s_cart
+  columns:
+    id:
+      type:           integer(4)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+      unsigned:       true
+    count:
+      type:           integer(2)
+      notnull:        true
+      unsigned:       true
+      default:        1
+    price:
+      type:           decimal(10,2)
+      notnull:        true
+      unsigned:       true
+    user_id:
+      type:           integer(11)
+      notnull:        true
+#      unsigned:       true
+    company_id:
+      type:           integer(3)
+      notnull:        true
+      unsigned:       true
+    item_variant_id:
+      type:           integer(4)
+      notnull:        true
+      unsigned:       true
+    order_id:
+      type:           integer(4)
+      default:        0
+      unsigned:       true            
+  relations:
+    sfGuardUser:
+      onDelete:       CASCADE
+      local:          user_id
+      foreign:        id
+      foreignAlias:   sCart
+    sItemVariant:
+      onDelete:       CASCADE
+      local:          item_variant_id
+      foreign:        id
+      foreignAlias:   sCart
+    Company:
+      onDelete:       CASCADE
+      local:          company_id
+      foreign:        id
+      foreignAlias:   sCart
+    sOrder:      
+      local:          order_id
+      foreign:        id
+      foreignAlias:   sCarts      
+  indexes:
+    company_id_idx:
+      fields:         [company_id]
+    order_id_idx:
+      fields:         [order_id]
+    cart_idx:
+      fields:         [id, order_id]
+
+# заказы
+sOrder:
+  actAs: [Timestampable]
+  tableName:          mm_s_orders
+  columns:
+    id:
+      type:           integer(4)
+      notnull:        true
+      primary:        true
+      unsigned:       true
+      autoincrement:  true
+    address:
+      type:           clob
+      notnull:        true
+    comment:
+      type:           clob      
+      
+sCompanyOrder:
+  actAs: [Timestampable]
+  tableName:          mm_s_companies_orders
+  columns:
+    id:
+      type:           integer(4)
+      notnull:        true
+      primary:        true
+      unsigned:       true
+      autoincrement:  true
+    order_id:
+      type:           integer(4)
+      notnull:        true
+      unsigned:       true
+    company_id:
+      type:           integer(3)
+      notnull:        true
+      unsigned:       true
+    delivery_price:
+      type:           integer
+      notnull:        true
+    status:
+      type:           enum
+      values:
+        - preordered
+        - ordered
+        - processed
+        - delivered
+      default:        preordered
+      notnull:        true
+  relations:
+    sOrder:      
+      local:          order_id
+      foreign:        id
+      foreignAlias:   sCompanyOrders   
+
+# вишлист
+sWishlist:
+  actAs: [Timestampable]
+  tableName:          mm_s_wishlist
+  columns:
+    id:
+      type:           integer(11)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+    user_id:
+      type:           integer(11)
+      notnull:        true
+    item_variant_id:
+      type:           integer(4)
+      notnull:        true
+      unsigned:       true
+  relations:
+    sfGuardUser:
+      onDelete:       CASCADE
+      local:          user_id
+      foreign:        id
+      foreignAlias:   sWishlist
+    sItemVariant:
+      onDelete:       CASCADE
+      local:          item_variant_id
+      foreign:        id
+      foreignAlias:   sWishlist
+  indexes:
+    item_variant_id_idx:
+      fields:         [item_variant_id]   
+
+#служебные таблицы для парсера из яндекс маркета
+ymlCategory:
+  tableName:          mm_s_categories_ids
+  columns:
+    id:
+      type:           integer(11)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+    xml_id:
+      type:           integer(11)
+      notnull:        true
+    category_id:
+      type:           integer(11)
+      notnull:        true
+    company_id:
+      type:           integer(5)
+      notnull:        true
+  indexes:
+    xml_id_idx:
+      fields:         [xml_id]
+    category_id_idx:
+      fields:         [category_id]
+    company_id_idx:
+      fields:         [company_id]
+
+ymlItem:
+  tableName:          mm_s_items_ids
+  columns:
+    id:
+      type:           integer(11)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+    xml_id:
+      type:           integer(11)
+      notnull:        true
+    item_id:
+      type:           integer(11)
+      notnull:        true
+    company_id:
+      type:           integer(5)
+      notnull:        true
+  indexes:
+    xml_id_idx:
+      fields:         [xml_id]
+    item_id_idx:
+      fields:         [item_id]
+    company_id_idx:
+      fields:         [company_id]
+      
+ymlCompany:
+  tableName:          mm_s_ymls
+  actAs:
+    Timestampable:
+      created:
+        disabled: true
+      updated:
+        format:   Y-m-d H:i        
+  columns:
+    id:
+      type:           integer(11)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+    company_id:
+      type:           integer(5)
+      notnull:        true
+    filename:
+      type:           string(255)
+  indexes:
+    company_id_idx:
+      fields:         [company_id]
+      
+sChat:
+  tableName:          mm_s_chat
+  columns:
+    id:
+      type:           integer(10)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+    user_id:
+      type:           integer(5)
+      notnull:        true
+    operator_id:
+      type:           integer(5)
+      notnull:        true
+  options:
+    type:             MEMORY
+    
+sOfficeText:
+  actAs:
+    Timestampable: ~
+    Sluggable:
+      name:      title_slug
+      unique:    true
+      fields:    [title]
+      canUpdate: true
+      builder:   [SlugifyClass, slugify]
+  tableName:          mm_s_office_texts
+  columns:
+    id:
+      type:           integer(4)
+      notnull:        true
+      unsigned:       true
+      primary:        true
+      autoincrement:  true
+    title:
+      type:           string(255)
+    text:
+      type:           clob
+    category_id:
+      type:           integer(11)
+    company_id:
+      type:           integer(3)
+      unsigned:       true
+  relations:
+    sCategory:
+      onDelete:       CASCADE
+      local:          category_id
+      foreign:        id
+      foreignAlias:   sOfficeText
+    Company:
+      onDelete:       CASCADE
+      local:          company_id
+      foreign:        id
+      foreignAlias:   sOfficeText
+  indexes:
+    office_text_idx:
+      fields:         [category_id, company_id]
+    company_id_idx:
+      fields:         [company_id]
+    title_slug_idx:
+      fields:         [title_slug]
+
+# Project The Game Schema
+mGameAccount:
+  actAs: [Timestampable]
+  tableName:          mm_g_accounts
+  columns:
+    id:
+      type:           integer(3)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+      unsigned:       true
+    user_id:
+      type:           integer(11)
+    round:
+      type:           integer(1)
+      unsigned:       true
+      notnull:        true
+    rating:
+      type:           integer(3)
+      unsigned:       true
+      notnull:        true
+    money_spent:
+      type:           decimal(10,2)
+      unsigned:       true
+    money:
+      type:           decimal(10,2)
+      unsigned:       true
+    credit:
+      type:           decimal(10,2)
+      unsigned:       true
+  relations:
+    sfGuardUser:
+      local:          user_id
+      foreign:        id
+      foreignType:    one
+  indexes:
+    round_id_idx:
+      fields:          [round]
+    rating_idx:
+      fields:          [rating]     
+
+mGameCart:
+  actAs: [Timestampable]
+  tableName:          mm_g_carts
+  columns:
+    id:
+      type:           integer(4)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+      unsigned:       true
+    price:
+      type:           decimal(10,2)
+      notnull:        true
+      unsigned:       true
+    account_id:
+      type:           integer(3)
+      notnull:        true
+      unsigned:       true
+    company_id:
+      type:           integer(3)
+      notnull:        true
+      unsigned:       true
+    item_variant_id:
+      type:           integer(4)
+      default:        0
+      unsigned:       true
+    round:
+      type:           integer(1)
+      unsigned:       true
+      default:        1
+    checkout:
+      type:           enum
+      values:
+        - true
+        - false
+      default:        false
+      notnull:        true            
+  relations:
+    mGameAccount:
+      onDelete:       CASCADE
+      local:          account_id
+      foreign:        id
+      foreignAlias:   gCart
+    sItemVariant:
+      local:          item_variant_id
+      foreign:        id
+      foreignAlias:   gCart
+    Company:
+      onDelete:       CASCADE
+      local:          company_id
+      foreign:        id
+      foreignAlias:   gCart
+  indexes:
+    company_id_idx:
+      fields:         [company_id]
+    round_idx:
+      fields:         [round]
+    account_id_idx:  
+      fields:         [account_id]
+
+mGameUserItem:
+  actAs: [Timestampable]
+  tableName:          mm_g_user_items
+  columns:
+    id:
+      type:           integer(4)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+      unsigned:       true  
+    url:
+      type:           string(255)
+      notnull:        true      
+    picture:
+      type:           string(255)
+      notnull:        true      
+    price:            
+      type:           decimal(10,2)
+      notnull:        true
+      unsigned:       true
+    description:
+      type:           string(255)
+    is_verified:
+      type:           enum
+      values:
+        - process
+        - ok
+        - bad        
+      notnull:        true
+      default:        process
+    account_id:
+      type:           integer(3)
+      notnull:        true
+      unsigned:       true
+  relations:
+    mGameAccount:
+      onDelete:       CASCADE
+      local:          account_id
+      foreign:        id
+      foreignAlias:   gAccountItem
+  indexes:
+    account_id_idx:  
+      fields:         [account_id]
+    verified_idx:
+      fields:         [is_verified]
+
+mGameRoundRules:
+  tableName:          mm_g_round_rules
+  columns:
+    id:
+      type:           integer(2)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+      unsigned:       true
+    round:
+      type:           integer(2)
+      unsigned:       true
+      notnull:        true
+    money:
+      type:           decimal(10,2)
+      unsigned:       true
+      notnull:        true      
+    purchases:
+      type:           integer(2)
+      unsigned:       true
+      notnull:        true
+    additionalRules:
+      type:           object
+  indexes:
+    round_idx:  
+      fields:         [round]
+      

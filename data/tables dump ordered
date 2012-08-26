@@ -1,0 +1,44 @@
+/* Tables order */
+
+mm_actions
+mm_news
+mm_texts
+
+mm_floors
+mm_companies
+mm_companies_profiles
+
+mm_s_brands
+mm_s_properties
+mm_s_categories
+mm_s_tags
+
+mm_s_property_category_map
+mm_s_properties_values
+
+mm_s_items
+mm_s_item_tag_map
+mm_s_item_variants
+mm_s_images
+
+sf_guard_users
+sf_guard_user_profiles
+sf_guard_groups
+
+sf_guard_permissions
+sf_guard_group_permission_map
+sf_guard_user_group_map
+sf_guard_user_permission_map
+sf_guard_remembered_keys
+
+mm_s_orders
+mm_s_cart
+mm_s_wishlist
+
+mm_s_categories_ids
+mm_s_items_ids
+mm_s_urls
+
+
+mysqldump --user=root --password=snkEld23prsD8 --skip-comments --no-create-db --no-create-info --complete-insert mm_1_0_6a mm_actions mm_news mm_texts mm_floors mm_companies mm_companies_profiles mm_s_brands mm_s_properties mm_s_categories mm_s_tags mm_s_property_category_map mm_s_properties_values mm_s_items mm_s_item_tag_map mm_s_item_variants mm_s_images sf_guard_users sf_guard_user_profiles sf_guard_groups sf_guard_permissions sf_guard_group_permission_map sf_guard_user_group_map sf_guard_user_permission_map sf_guard_remembered_keys mm_s_orders mm_s_cart mm_s_wishlist mm_s_categories_ids mm_s_items_ids mm_s_urls > /home/dump_7.sql
+mysqldump --user=root --password=snkEld23prsD8 mm_1_0_7a < /home/dump_7.sql

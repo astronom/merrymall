@@ -1,0 +1,33 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           sItem
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          s_item
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        sort: [position, asc]
+        display: [id, name, sCategory, sBrand, position]
+        table_method: retrieveBackendsItemsList
+#        object_actions:
+#          promote:
+#            action: demote
+#          demote:
+#            action: promote
+#          _edit:      ~
+#          _delete:    ~
+      filter:
+        class: BackendsItemFormFilter
+      form:
+        class: BackendsItemForm
+      edit:    ~
+      new:     ~

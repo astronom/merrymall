@@ -1,0 +1,225 @@
+a { color:#0a6093; text-decoration:underline; }
+a:hover { text-decoration:none; }
+
+h1 { color:#2775a8; font-size:17px; font-weight:normal; margin:0 0 13px 0; padding:0; }
+h2 { color:#507c24; font-size:14px; font-weight:normal; margin:0 0 10px 0; text-transform:uppercase; padding:0; }
+
+.mn1 { height:47px; }
+.mn2kabinet { height:335px; vertical-align: top; color:#535353; font-size:13px;}
+.mn4kabinet { background:url(/images/office/kabinetcen4.gif) 44px 134px no-repeat; vertical-align:top; color:#535353; font-size:13px; }
+.mn5 { height:40px; }
+
+.kabbd2 { width:1000px; }
+
+.kabinetbd1 { background:url(/images/office/kabinetleft.jpg) right 47px no-repeat; }
+.kabinetbd3 { background:url(/images/office/kabinetright.jpg) left 47px no-repeat; }
+
+.kn5 { position:absolute; top:102px; left:2px; z-index:5; }
+
+.logokabinet { position:absolute; top:0; left:80px; }
+
+
+.centerkabinet { width:1000px; height:100%; background:url(/images/office/kabinetcen1.gif) top left no-repeat; }
+
+.cr5 { height:134px; background:url(/images/office/kabinetcen2.gif) top right no-repeat; padding:0 70px 0 50px; }
+.cr6 { padding:0 0 0 45px; }
+
+
+/* ====== kabinet_polz ====== */
+
+.kabinet1 {background:url(/images/office/kabinet1.jpg) no-repeat;}
+.kabinet2 {background:url(/images/office/kabinet2.jpg) 125px top no-repeat;}
+.kabinet3 {background:url(/images/office/kabinet3.jpg) 250px top no-repeat;}
+.kabinet4 {background:url(/images/office/kabinet4.jpg) 375px top no-repeat;}
+.kabinet5 {background:url(/images/office/kabinet5.jpg) 500px top no-repeat;}
+.kabinet6 {background:url(/images/office/kabinet6.jpg) 625px top no-repeat;}
+.kabinet7 {background:url(/images/office/kabinet7.jpg) 750px top no-repeat;}
+.kabinet8 {background:url(/images/office/kabinet8.jpg) 875px top no-repeat; position:relative; }
+
+.kabinet1, .kabinet2, .kabinet3, .kabinet4, .kabinet5, .kabinet6, .kabinet7, .kabinet8 {
+	width:100%;
+	height:335px;
+}
+
+.lichnie {
+	width:223px;
+	height:126px;
+	background:url(/images/office/lichno.gif) top left no-repeat;
+	position:absolute;
+	top:94px;
+	left:422px;
+}
+
+.lichnie2 {
+	width:223px;
+	height:84px;
+	background:url(/images/office/lichno.png) top left no-repeat;
+	position:absolute;
+	top:5px;
+	left:722px;
+}
+.liczag { color:#507c24; font-size:14px; margin:0; padding:12px 0 10px 15px; }
+.lichtxt { line-height:20px; padding:0 0 0 15px;}
+.liclink { font-size:11px; display:block; text-align:right; margin:0 10px 0 30px; }
+
+.razdelit_poloska {
+	width:1px;
+	height:126px;
+	background:url(/images/office/lich_poloska.gif) top left no-repeat;
+	position:absolute;
+	top:94px;
+	left:683px;
+}
+
+.dostupnie_skidki {
+	color:#507c24;
+	font-size:14px;
+	position:absolute;
+	top:247px;
+	left:437px;
+}
+.dostupnie_skidki a { color:#507c24; text-decoration:none; }
+
+.karuselka { width:486px; height:40px; position:absolute; top:269px; left:431px; }
+.kaleft { position:absolute; top:4px; left:0; }
+.karight { position:absolute; top:4px; right:0; }
+
+.ka1 { margin:0 0 0 36px; padding:0; position:absolute; top:0; left:0; }
+.ka1 li {
+	background:url(/images/office/denga.gif) top left no-repeat;
+	list-style-type:none;
+	padding:3px 10px 8px 27px;
+	font-size:11px;
+	width:35px;
+	line-height:11px;
+	color:#0a6093;
+	float:left;
+}
+
+
+.korzina { width:100%;}
+.kor1 { width:450px; padding:0 0 0 20px; }
+.kor2 { text-align:right; vertical-align:middle; }
+
+.shtuchki {margin:8px 0 0 0;}
+
+.razmer11px { font-size:11px; }
+.razmer12px { font-size:12px; }
+
+.si11 { background:url(/images/office/polosochka.gif) top right repeat-y; width:230px; }
+.si12 { background:url(/images/office/polosochka.gif) top right repeat-y; width:226px; }
+.si13 { background:url(/images/office/polosochka.gif) top right repeat-y; width:216px; }
+
+.shtuka { height:64px; }
+.shtuka2 { height:64px; margin:0 0 12px 0; }
+.sht1 {
+	background:url(/images/office/karOp.gif) 18px top no-repeat;
+	width:78px;
+	min-height: 64px;
+	padding:0 0 0 18px;
+	text-align:center;
+	vertical-align:middle;}
+.sht1_ {
+	vertical-align: top;
+	min-height: 64px;
+	padding:0 15px 0 18px;
+	text-align:left;}
+	.sht1_ img {float: left; margin-right: 10px;} 
+.sht2 { padding:0 0 0 11px; font-size:11px; line-height:15px; }
+.sht3 {
+	background:url(/images/office/karOp.gif) top left no-repeat;
+	width:78px;
+	text-align:center;
+	vertical-align:middle;
+}
+
+.udalit { color:#a8383b; text-decoration:underline; background:url(/images/office/krestik.gif) 0 4px no-repeat; padding:0 0 0 12px; }
+
+.tab11 { width:189px; padding:0 20px 0 25px; background:url(/images/office/polosochka.gif) top right repeat-y;}
+.tab12 { width:630px; padding:0 20px 0 25px;4 }
+.tab13 { width:171px; padding:0 20px 0 25px; background:url(/images/office/polosochka.gif) top right repeat-y;}
+
+.tab41 { width:217px; padding:0 20px 10px 15px; background:url(/images/office/polosochka.gif) top right repeat-y;}
+.tab42 { width:373px; padding:0 20px 10px 15px; background:url(/images/office/polosochka.gif) top right repeat-y;}
+.tab43 { width:184px; padding:0 20px 10px 20px; }
+
+.tab41 a, .tab42 a, .tab43 a {
+	color:#005388;
+	font-family:Franklin Gothic Medium Cond;
+	font-size:16px;
+	text-decoration:none;
+	text-transform:uppercase;
+}
+
+.tab44 { padding:0 20px 0 15px; background:url(/images/office/polosochka.gif) top right repeat-y; font-size:12px; }
+.tab45 { padding:0 20px 0 15px; background:url(/images/office/polosochka.gif) top right repeat-y; font-size:12px; }
+.tab46 { padding:0 20px 0 20px; }
+
+.tab51 { padding:0 0 0 21px; width:640px; background:url(/images/office/polosochka.gif) top right repeat-y; font-size:12px; }
+.tab52 { padding:0 0 0 15px; font-size:12px; }
+
+.tab2 { width:185px; padding:0 20px 0 25px; }
+.tab23 { width:185px; padding:12px 20px 0 25px; vertical-align: top;}
+
+.tab11 a, .tab12 a, .tab13 a, .tab2 a {
+	color:#005388;
+	font-family:Franklin Gothic Medium Cond;
+	font-size:16px;
+	font-variant: small-caps;
+	/*background:url(/images/office/pimpka.gif) right 7px no-repeat;*/
+	/*display:block;*/
+	text-decoration:none;
+	margin:0 0 0 0;
+}
+
+.tab3 { background:url(/images/office/polosochka.gif) top right repeat-y; padding:5px 0 0 25px; vertical-align: top; }
+.tab32 { background:url(/images/office/polosochka.gif) top right repeat-y; padding:12px 20px 0 6px; vertical-align: top; }
+.tab34 { background:url(/images/office/polosochka.gif) top right repeat-y; padding:12px 20px 0 22px; vertical-align: top; }
+.ots { margin-bottom: 20px; width: 100%; }
+	.ots img {padding: 5px 0px;}
+
+.tab6 { width:204px; padding:0 0 0 0; background:url(/images/office/polosochka.gif) top right repeat-y;}
+.tab7 { width:414px; padding:0 12px 0 12px; background:url(/images/office/polosochka.gif) top right repeat-y; }
+.tab8 { width:190px;  padding:0 3px 0 25px; }
+
+.tabet1 { width:208px; padding:0 22px 0 155px; background:url(/images/office/polosochka.gif) top right repeat-y;}
+.tabet2 { width:204px; padding:0 12px 0 12px; background:url(/images/office/polosochka.gif) top right repeat-y; }
+.tabet3 { width:190px;  padding:0 148px 0 30px; }
+
+.mumagaz { margin:5px 0 0 0; padding:0; }
+.mumagaz li { list-style-type:none; padding:2px 0 2px 0; margin:0; }
+.mumagaz li a {
+	color:#507c24;
+	font-size:13px;
+	display:block;
+	text-decoration:underline;
+	background:url(/images/office/muzel.gif) left 6px no-repeat;
+	padding:0 0 0 10px;
+}
+.mumagaz li a:hover { text-decoration:none; }
+
+.mesto { padding:5px 0 3px 0; }
+
+.green { color:#507c24; font-size:12px; }
+.zag18px {
+	color:#005388;
+	font-size:18px;
+}
+/*�������������� ������� ������������*/
+#profile_form {text-align: left;}
+	#profile_form th {color:#535353;
+					  padding-top: 3px;
+					  font-size:13px;
+					  font-weight:normal;
+					  text-align:left;
+					  vertical-align: top;}
+	#profile_form td {color:#535353; 
+					  font-size:12px; 
+					  padding: 0 10px 10px; }
+	#profile_form tfoot {text-align: right;}
+	#profile_form input {border:1px solid #7890AE;
+						 height:21px;
+						 width:212px;}
+	#profile_form textarea {border:1px solid #7890AE;
+						 	height:60px;
+							width:212px;}					  

@@ -1,0 +1,42 @@
+body { behavior: url("/csshover2.htc"); text-align: center; }
+img, p { behavior: url("/pngfix.htc"); }
+#page_footer {text-align: left;}
+
+.page_content-top {display: inline; margin-bottom: 0px;  height: 0px; float: left; position: relative;}
+.menu-h { margin: 0 auto; text-align: left; }
+.home, .site_map, .send_mail {width: 20px;}
+
+.cart_list {
+    width: 95%;
+	margin: 10px auto;
+	position: relative;
+	left: 15px;
+}
+.logo {left: -360px; /* ie 6 because of body text-align: center; */}
+.page_name {background: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='/images/privateArea/title.png', sizingMethod='scale');
+	left: 25px;  
+}
+.cart_image {overflow: hidden;}
+.cart_description {text-align: left !important; padding-left: 0px; font-size: 13px;}
+
+.on-action-cart {margin-left: -800px;}
+
+.user_info {}
+									
+.content .f-inputs { padding-left: 0; height: 1%; }
+.content .f-actions { padding-left: 30%; }
+
+.container, .columns,
+.content .f-actions,
+.menu-h, .layout-box,
+.menu-v-d a,
+.menu-h-d,
+.menu-h-d li,
+.menu-h-d ul li a { zoom: 1; } /* hasLayout ON */
+
+.page-layout .container { float: left; width: 100%; zoom: 1; height: 1%; display: block; }
+.layout-box {  }
+
+/* chat */
+.chatPos {position: absolute; top: 100px; right:-400px; z-index:5;}

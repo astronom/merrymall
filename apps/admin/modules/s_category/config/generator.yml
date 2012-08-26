@@ -1,0 +1,33 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           sCategory
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          s_category
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        sort: [position, asc]
+        display: [id, tabbedName, position]
+        object_actions:
+          promote:
+            action: demote
+          demote:
+            action: promote
+          _edit:      ~
+          _delete:    ~
+
+      filter:
+        class: BackendsCategoryFormFilter
+      form:
+        class: BackendsCategoryForm
+      edit:    ~
+      new:     ~

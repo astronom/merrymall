@@ -1,0 +1,40 @@
+indexSuccess:
+  metas:
+    title:        Личный кабинет - Merry Mall
+    description:  Мерри Молл
+
+  stylesheets:    [ new/jquery.lightbox-0.5.css, new/plugin/jQueryTools.tabs.css, new/plugin/jQueryTools.form.css ]
+
+  javascripts:    [ plugin/jquery.lightbox-0.5.js ]
+  
+  layout:         newLayout
+
+editProfileSuccess:
+  metas:
+    title:        Личный кабинет - Редактор личных данных - Merry Mall
+    description:  Мерри Молл
+
+  stylesheets:    [ private_area_ ]
+
+  javascripts:    [ ]
+  has_layout:     false
+
+updateSuccess:
+  metas:
+    title:        Личный кабинет - Редактор личных данных - Merry Mall
+    description:  Мерри Молл
+
+  stylesheets:    [ private_area_ ]
+
+  javascripts:    [ ]
+  has_layout:     false
+  
+editProfileSuccess:
+  metas:
+    title:        Личный кабинет - Редактор личных данных - Merry Mall
+    description:  Мерри Молл
+
+  stylesheets:    [ new/jquery.lightbox-0.5.css, new/plugin/jQueryTools.tabs.css, new/plugin/jQueryTools.form.css ]
+
+  javascripts:    [ plugin/jquery.lightbox-0.5.js ]
+  has_layout:     newLayout  

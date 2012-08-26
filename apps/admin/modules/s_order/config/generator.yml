@@ -1,0 +1,37 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           sOrder
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             true
+    singular:              ~
+    plural:                ~
+    route_prefix:          s_order
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        id:         {label: №}
+        cart:       {label: Заказанные товары}
+        comment:    {label: Комментарий к заказу}
+        address:    {label: Адрес доставки}
+        customer:   {label: Покупатель}
+        sCompanyStatus:     {label: Статус заказа}
+        created_at: {label: Заказ создан}        
+      list:
+        title: Список Заказов
+        display: [id, _cart, _customer, address, comment, _sCompanyStatus, created_at]
+        actions: {}
+          #deleteDeliveredOrders: {label: Удалить доставленные заказы}
+        batch_actions: {}
+        object_actions:
+          ordered: {label: Обработан}
+        table_method: retrieveBackendsOrdersList                
+      filter:
+        display: [address,  created_at]
+      form:    ~
+      edit:    ~
+      new:     ~

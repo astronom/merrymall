@@ -1,0 +1,30 @@
+<p class="permalink">
+    <a title="http://symfony-check.org/permalink/redirect-to-the-unavailable-screen-during-the-maintenance-operations" href="/permalink/redirect-to-the-unavailable-screen-during-the-maintenance-operations">permalink</a>
+</p>
+<p>
+    The bigger your website becomes, the slower some symfony tasks will be.
+</p>
+<p>
+    At some point, these operations will substantially slow down your application and disturb your users.
+</p>
+<p>
+    Displaying a clean maintenance screen is usually a better choice than providing a degrated navigation experience to your users.
+</p>
+<p>
+    To redirect automatically the users to the customized 
+    <code>
+        unavailable.php
+    </code>
+    page when you launch tasks like 
+    <code>
+        php symfony cc
+    </code>, modify the 
+    <code>
+        apps/frontend/config/settings.yml
+    </code>
+    file:
+</p>
+<pre><code>all:
+  .settings:
+    check_lock:    true
+</code></pre>

@@ -1,0 +1,56 @@
+.kabrightblock { width:100%; height:437px; background:url(/images/c/kab/kabsh2.gif) right 47px no-repeat; }
+.kableftblock { width:100%; height:437px; background:url(/images/c/kab/kabsh1.gif) left 47px no-repeat; }
+.logo { position:absolute; top:0; left:55px !important; }
+.of-logo { width:320px; text-align:center; position:absolute; left:385px; top:12px; }
+
+.kab1 {background:url(/images/c/kab/kab1.jpg) no-repeat;}
+.kab2 {background:url(/images/c/kab/kab2.jpg) 125px top no-repeat;}
+.kab3 {background:url(/images/c/kab/kab3.jpg) 250px top no-repeat;}
+.kab4 {background:url(/images/c/kab/kab4.jpg) 375px top no-repeat;}
+.kab5 {background:url(/images/c/kab/kab5.jpg) 500px top no-repeat;}
+.kab6 {background:url(/images/c/kab/kab6.jpg) 625px top no-repeat;}
+.kab7 {background:url(/images/c/kab/kab7.jpg) 750px top no-repeat;}
+.kab8 {background:url(/images/c/kab/kab8.jpg) 875px top no-repeat; position:relative; }
+
+.kab1, .kab2, .kab3, .kab4, .kab5, .kab6, .kab7, .kab8 {
+	width:100%;
+	height:332px;
+}
+.kn1kab { position:absolute; top:243px; left:2px; z-index:5; }
+.kn2kab { position:absolute; top:243px; right:2px; z-index:5; }
+
+.kabbd1 { background:url(/images/c/kab/kableft.jpg) right 47px no-repeat; }
+.kabbd2 { width:1000px; }
+.kabbd3 { background:url(/images/c/kab/kabright.jpg) left 47px repeat-x; }
+
+.mn2kab { height:332px; }
+.mn4kab { padding:0 0 0 49px; background:url(/images/c/kab/kabcenter.gif) top left no-repeat; }
+
+.kabmenu { position:absolute; top:137px; left:791px; }
+.kabmenu a {
+	color:#568438;
+	font-size: 16px;
+	display:block;
+	margin:0 0 10px 0;
+	background: url(/images/c/kab/pipko.gif) left 5px no-repeat;
+	padding:0 0 0 16px;
+	text-decoration:underline;
+}
+.kabmenu a:hover { text-decoration:none; }
+.cr3 { padding:0 35px 10px 33px; color: #535353; }
+.zag {
+	color:#005388;
+	font-family:Franklin Gothic Medium Cond;
+	font-size:16px;
+	padding:0 0 10px 0;
+}
+.zag24px {
+	color:#005388;
+	font-size:24px;
+	padding:0 0 10px 0;
+}
+.zag18px {
+	color:#005388;
+	font-size:18px;
+}
+.cr3 p { padding-top: 1em; }

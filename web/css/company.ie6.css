@@ -1,0 +1,8 @@
+.kn1 { 
+position:absolute; 
+top: expression((175+(ignoreMe=document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
+left:2px; z-index:5; }
+.kn2 {
+position:absolute; 
+top: expression((170+(ignoreMe=document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
+right:-400px; z-index:5;}

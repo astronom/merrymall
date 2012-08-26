@@ -1,0 +1,536 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# default rules
+homepage:
+  url:  /
+  param:
+    module: floor
+    action: index
+    floor_id: 2
+
+about:
+  url: /about
+  param:
+    module: text
+    action: about
+    
+adds:
+  url: /add
+  param:
+    module: text
+    action: adds
+
+rent:
+  url: /rent
+  param:
+    module: text
+    action: rent
+
+reception:
+  url: /receprion
+  param:
+    module: reception
+    action: index
+
+companies:
+  url: /company
+  param:
+    module: reception
+    action: companies
+
+root_tags:
+  url: /tags
+  param:
+    module: reception
+    action: rootTags
+
+tags:
+  url: /tags/:tag_id
+  param:
+    module: reception
+    action: tags
+
+news:
+  url: /news
+  param:
+    module: news
+    action: index
+
+show_news:
+  url: /news/:title_slug
+  class: sfDoctrineRoute
+  options: { model: News, type: object }
+  param: { module: news, action: show }
+
+actions:
+  url: /actions
+  param:
+    module: actions
+    action: index
+
+show_action:
+  url: /actions/:title_slug
+  class: sfDoctrineRoute
+  options: { model: Actions, type: object }
+  param: { module: actions, action: show }
+  
+help:
+  url: /help
+  param: { module: help, action: index }
+  requirements:
+    sf_method: [get, head]
+
+help_service:
+  url: /help/services
+  param: { module: help, action: service }
+  requirements:
+    sf_method: [get, head]
+
+help_service_show:
+  url: /help/services/:service.htm
+  param: { module: help, action: serviceShow }
+  requirements:
+    sf_method: [get, head]
+    sf_format: html    
+
+sitemap:
+  url: /sitemap
+  param: { module: reception, action: siteMap }
+  requirements:
+    sf_method: [get, head]
+
+hall:
+  url:  /hall
+  param:
+    module:   floor
+    action:   hall
+    floor_id: 1
+
+hall_as_floor:
+  url:  /floor/1
+  param:
+    module:   floor
+    action:   hall
+    floor_id: 1
+
+floor:
+  url:  /floor/:floor_id
+  class: sfDoctrineRoute
+  options: { model: Floor, type: object }
+  param:
+    module: floor
+    action: index
+  requirements:
+    floor_id: \d+
+
+floor_companies:
+  url:  /floor/:floor_id/:position
+  class: sfDoctrineRoute
+  options: { model: Company, type: object }
+  param:
+    module: floor
+    action: index
+  requirements:
+    floor_id: \d+
+
+company:
+  url:  /company/:type/:url.:sf_format
+  class: sfDoctrineRoute
+  params: { module: company, action: index, sf_format: html }
+  options: { model: Company, type: object, method: getAvailableJoinFloorJoinCompanyProfile }
+  requirements:
+    sf_method: [get, head]
+    sf_format: html
+  
+company_category:
+  url:  /company/:type/:url/category/:category_id
+  class: sfDoctrineRoute
+  param:
+    module: company
+    action: index
+  options: { model: Company, type: object, method: getAvailableJoinFloorJoinCompanyProfile }
+  requirements:
+    sf_method: [get, head]
+
+company_page:
+  url:  /company/:type/:url/category/:category_id/page/:page
+  class: sfDoctrineRoute
+  param:
+    module: company
+    action: index
+  options: { model: Company, type: object, method: getAvailableJoinFloorJoinCompanyProfile }
+  requirements:
+    company_name: \w+
+    page: \d+
+  requirements:
+    sf_method: [get, head]
+    
+company_about:
+  url: /company/:type/:url/about
+  class: sfDoctrineRoute
+  param:
+    module: company
+    action: about
+  options: { model: Company, type: object, method: getAvailableJoinFloorJoinCompanyProfile }
+  requirements:
+    sf_method: [get, head]
+      
+company_news:
+  url: /company/:type/:url/news
+  class: sfDoctrineRoute
+  param:
+    module: company
+    action: news
+  options: { model: Company, type: object, method: getAvailableJoinFloorJoinCompanyProfileJoinNews }
+  requirements:
+    sf_method: [get, head]
+    
+company_show_news:
+  url: /company/:type/:company_name/news/:title_slug
+  class: sfDoctrineRoute
+  param:
+    module: company
+    action: showNews
+  options: { model: News, type: object }
+  requirements:
+    sf_method: [get, head]
+        
+company_actions:
+  url: /company/:type/:company_name/actions
+  class: sfDoctrineRoute
+  param:
+    module: company
+    action: actions
+  options: { model: Company, type: object, method: getAvailableJoinFloorJoinCompanyProfileJoinActions }
+  requirements:
+    sf_method: [get, head]
+  
+company_show_actions:
+  url: /company/:type/:company_name/actions/:title_slug
+  class: sfDoctrineRoute
+  param:
+    module: company
+    action: showActions
+  options: { model: Actions, type: object }
+  requirements:
+    sf_method: [get, head] 
+
+company_contactus:
+  url: /company/:type/:url/contactus
+  class: sfDoctrineRoute
+  param:
+    module: company
+    action: contact
+  options: { model: Company, type: object, method: getAvailableJoinFloorJoinCompanyProfile }
+  requirements:
+    sf_method: [get, head]
+ 
+office_show_text:
+  url: /company/:type/:company_name/:slug
+  class: sfDoctrineRoute
+  param:
+    module: company
+    action: showText
+  options: { model: Company, type: object, method: getAvailableJoinFloorJoinCompanyProfileJoinOfficeTexts }
+  requirements:
+    sf_method: [get, head] 
+
+item_info:
+  url:  /company/:company_type/:url/item/:id
+  class: sfDoctrineRoute
+  param:
+    module: company
+    action: itemInfo
+  options: { model: sItem, type: object, method: getByIdJoinCompany }
+  requirements:
+    sf_method: [get, head]  
+
+
+item_info_ajax:
+  url:  /itemInfoAjax/:item_id
+  param:
+    module: company
+    action: itemInfoAjax
+
+private_area:
+  url:  /private_area
+  class: sfRequestRoute
+  param:
+    module: privateArea
+    action: index
+  
+  
+cart:
+  url: /cart
+  class: sfDoctrineRoute
+  options: 
+    model: sCart
+    type: object    
+  param: { module: cart, action: index }
+  requirements:
+    id: \d+
+
+cart_add:
+  url: /cart/add/:item_variant_id/:count
+  class: sfRequestRoute
+  param: { module: cart, action: add }    
+  requirements: 
+    item_variant_id: \d+
+    count: \d+
+    sf_method: [get]
+
+cart_refresh:
+  url: /cart/refresh
+  class: sfDoctrineRoute
+  options: { model: sCart, type: object }  
+  param: { module: cart, action: refresh }
+  requirements:
+    sf_method: [get]
+  
+cart_check:
+  url: /cart/check/:item_variant_id
+  class: sfDoctrineRoute
+  options: { model: sCart, type: object }
+  param: { module: cart, action: checkCartItem }
+  requirements:
+    item_variant_id: \d+
+    sf_method: [get]
+    sf_format: json
+
+cart_delete:
+  url: /cart/delete/:id
+  class: sfDoctrineRoute
+  options: { model: sCart, type: object, method: findOneByIdWhithUser }
+  param: { module: cart, action: delete }    
+  requirements: 
+    id: \d+
+  
+cart_clean:
+  url: /cart/clean
+  class: sfRequestRoute
+  param: { module: cart, action: clean }
+  requirements:
+    sf_method: [get]
+
+cart_full:        
+  url: /cart/full
+  class: sfRequestRoute
+  param: { module: cart, action: GetUserCart }
+  requirements:
+    sf_method: [get]
+    
+cart_save_count:
+  url: /cart/save
+  class: sfRequestRoute
+  param: { module: cart, action: SaveCount }
+  requirements:
+    sf_method: [post]
+
+  
+#cart_to_wishlist:
+#  url: /cart/move_to_wishlist/:id
+#  class: sfDoctrineRoute
+#  options: { model: sCart, type: object }
+#  param: { module: cart, action: moveToWishlist }
+#  requirements: { id: \d+ }
+#
+#wishlist_add:
+#  url: /wishlist/add/:item_variant_id
+#  class: sfDoctrineRoute
+#  options: { model: sWishlist, type: object }
+#  param: { module: wishlist, action: add }
+#  requirements: 
+#    item_variant_id: \d+
+#    sf_method: [get]
+#
+#  
+#wishlist_to_cart:
+#  url: /wishlist/move_to_cart/:id
+#  class: sfDoctrineRoute
+#  options: { model: sWishlist, type: object }
+#  param: { module: wishlist, action: moveToCart }
+#  requirements: { id: \d+ }
+#
+#wishlist_delete_one:
+#  url: /wishlist/delete/:id
+#  class: sfDoctrineRoute
+#  options: { model: sWishlist, type: object }
+#  param: { module: wishlist, action: delete }
+#  requirements: { id: \d+ }
+#
+private_area_edit_profile:
+  url:  /private_area/edit_profile
+  options: { model: GuardUserProfile, type: object }  
+  param:
+    module: privateArea
+    action: editProfile
+
+private_area_update:
+  url:  /private_area_update
+  class:   sfDoctrineRoute
+  options: { model: GuardUserProfile, type: object }
+  param:   { module: privateArea, action: update }
+  requirements: { sf_method: put }
+
+private_area_add_order:
+  url:  /add_order
+  class:   sfRoute
+  param:   { module: privateArea, action: addOrder }
+  requirements: { sf_method: put }
+private_area_mail_unsucsribe:
+  url:  /mail/unsucsribe
+  class:   sfRoute
+  param:   { module: mail, action: unsucsribe }
+  requirements: { sf_method: get }
+#  
+#chat:
+#  url:    /chat
+#  class:  sfRoute
+#  param:  { module: pageParts, action: initChat }
+#  requirements: { sf_method: post }
+#
+order_signin:
+  url:   /private_area/signin
+  class:  sfRoute
+  param:  { module: privateArea, action: signin }
+
+order_cart:
+  url:   /private_area/cart
+  class:  sfRoute
+  param:  { module: privateArea, action: cart }
+
+order_delivery:
+  url:   /private_area/delivery
+  class:  sfRoute
+  param:  { module: privateArea, action: delivery }
+
+order_payment:
+  url:   /private_area/payment
+  class:  sfRoute
+  param:  { module: privateArea, action: payment }
+
+order_sugest:
+  url:   /private_area/sugest
+  class:  sfRoute
+  param:  { module: privateArea, action: sugest }
+
+order_info:
+  url:   /private_area/order/:order_id/info
+  class:  sfRoute
+  param:  { module: privateArea, action: orderInfo }  
+  
+sf_guard_signin:
+  url:   /login
+  param: { module: sfGuardAuth, action: signin }
+  
+sf_guard_signout:
+  url:   /logout
+  param: { module: sfGuardAuth, action: signout }
+
+sf_guard_restore_password:
+  url:   /restore_password
+  param: { module: sfGuardRegister, action: restorePassword }
+
+sf_guard_reset_password:
+  url:   /reset_password/:guid
+  param: { module: sfGuardRegister, action: resetPassword }
+  
+sf_guard_register:
+  url:   /registration
+  param: { module: sfGuardRegister, action: register }
+
+# Game Routing
+#game_cart:
+#  url: /game/cart
+#  class: sfDoctrineRoute
+#  options: { model: mGameCart, type: object }
+#  param: { module: mGameCart, action: index }
+#  requirements:
+#    sf_method: [get, head]
+#
+#game_cart_add:
+#  url: /game/cart/add/:item_variant_id
+#  class: sfRequestRoute
+#  param: { module: mGameCart, action: add }    
+#  requirements: 
+#    item_variant_id: \d+
+#    sf_method: [get]
+#
+#game_cart_check:
+#  url: /game/cart/check/:item_variant_id
+#  class: sfDoctrineRoute
+#  options: { model: mGameCart, type: object }
+#  param: { module: mGameCart, action: checkCartItem }
+#  requirements:
+#    item_variant_id: \d+
+#    sf_method: [get]
+#    sf_format: json
+#
+#game_cart_delete:
+#  url: /game/cart/delete/:id
+#  class: sfDoctrineRoute
+#  options: { model: mGameCart, type: object, method: findOneByIdWhithAccount }
+#  param: { module: mGameCart, action: delete }    
+#  requirements: 
+#    id: \d+
+#  
+#game_cart_clean:
+#  url: /game/cart/clean
+#  class: sfRequestRoute
+#  param: { module: mGameCart, action: clean }
+#  requirements:
+#    sf_method: [get]
+#        
+#game_cart_archive:
+#  url: /game/cart/archive
+#  class: sfRequestRoute
+#  param: { module: mGameCart, action: archive }
+#  requirements:
+#    sf_method: [get, head]            
+#
+#game_cart_checkout:
+#  url: /game/cart/checkout
+#  class: sfRequestRoute
+#  param: { module: mGameCart, action: checkout }
+#  requirements:
+#    sf_method: [get, head]          
+#    
+#game_account:
+#  url: /game
+#  class: sfRequestRoute
+#  param: { module: mGameAccount, action: index }
+#  requirements:
+#    sf_method: [get, head]
+#
+#game_account_signin:
+#  url: /game/account/signin
+#  class: sfRequestRoute
+#  param: { module: mGameAccount, action: signinGamer }
+#  requirements:
+#    sf_method: [get, head]
+#
+#game_account_create:
+#  url: /game/account/create
+#  class: sfRequestRoute
+#  param: { module: mGameAccount, action: create }
+#  requirements:
+#    sf_method: [post]    
+#
+#game_store_add_user_item:
+#  url: /game/store/add
+#  class: sfRequestRoute
+#  param: { module: mGameAccount, action: addItem }
+#  requirements:
+#    sf_method: [post]    
+
+# end Game Routing  
+  
+# generic rules
+# please, remove them by adding more specific rules
+#default_index:
+#  url:   /:module
+#  param: { action: index }
+#
+#default:
+#  url:   /:module/:action/*

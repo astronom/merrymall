@@ -1,0 +1,40 @@
+/* Chat */
+.chatPos {position: fixed; top: 140px; right: -400px; z-index:5;}
+.chat_button {    float: left;
+    width: 30px;
+    padding: 5px 16px 5px 10px;
+    height: 32px;
+    cursor: pointer; background: url("/images/icons/comment_24x24.png") 63% 50% no-repeat;}
+.mmChat {
+	display: block;
+	background-color: #dfeffc;
+	width: 400px;
+	height: 290px;
+	float: left;
+	overflow: hidden;
+	z-index: 5;
+	font-size: 13px;
+	text-align: left;}
+	.mmChatContent { padding: 10px; overflow: auto; height: 140px; }
+		.mmNickname { color: #005388;
+					  font-family: Tahoma; }
+		.mmChatTitle {background-color:#97C0DC;
+border-left:1px dotted #DFEFFC;
+color:#FFFFFF;
+font-size:17px;
+height:22px;
+padding:12px 20px 8px;}
+	.mmChatForm {
+				display: block;
+				background: #b6d0e2;
+				margin-top: 16px;
+				padding: 10px;
+				width: 100%; height: 80px;
+				}
+		.smiles {}
+		.mmChatFormInput {width: 360px; text-align: left;}
+		.mmChatFormButton {background: url("/images/chat/send.gif") 50% 50% no-repeat;
+						  width: 82px; height: 27px;
+						  border: none !important;
+						  cursor: pointer;
+						  }

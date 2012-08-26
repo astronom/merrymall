@@ -1,0 +1,183 @@
+/*
+ * Clear browsers styles
+ */ 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+caption {
+margin: 0;
+padding: 0;
+border: 0;
+outline: 0;
+font-weight: inherit;
+font-style: inherit;
+font-size: 100%;
+font-family: inherit;
+vertical-align: baseline;
+background: transparent;
+}
+
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+padding: 0;
+border: 0;
+outline: 0;
+font-weight: inherit;
+font-style: inherit;
+font-size: 100%;
+font-family: inherit;
+vertical-align: baseline;
+
+}
+
+
+:focus {
+    outline: 0;
+}
+
+ol, li {
+    list-style: none;
+}
+
+/* Для таблиц все еще надо прописывать 'cellspacing="0"' в коде */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+caption, th, td {
+    text-align: left;
+    font-weight: normal;	
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: "";
+}
+
+blockquote, q {
+    quotes: "" "";
+}
+
+/*
+ * Main styles
+ */
+html {
+    height: 100%;
+    color: #000;
+    background: #f4f4f4;
+    font: 0.75em / 1.5 Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    height: auto !important;
+    height: 100%;
+    min-height: 100%;
+    position: relative;
+	line-height: 1;
+    color: black;
+    background: white;
+
+}
+ /* body height 100% */
+a {
+    color: #0a6093;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a:visited {
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+}
+
+input {
+    text-align: center;
+    vertical-align: middle;
+    height: 20px;
+    margin: 0 3px;
+    border: 1px solid #005388;
+    font-weight: bold;
+}
+textarea {
+	text-align: left;
+	border: 1px solid #005388;
+}
+
+
+th {
+    text-align: center;
+	font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-family: Verdana serif;
+}
+
+h3 {font-size: 16px;}
+
+/* Horizontal Menu
+ ------------------------------ */
+.menu-h {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 990px;
+    text-align: center;
+}
+
+.menu-h li {
+    float: left;
+    padding: 10px 20px;
+}
+
+.menu-h a {
+    font-size: 15px;
+    font-weight: bold;
+    color: #005388;
+    border-bottom: 1px dashed #005388;
+	padding-bottom: 5px;
+    text-decoration: none;
+    display: block;
+}
+
+.menu-h a:hover {
+    border-bottom: none;
+}
+
+/*
+ * Набор базовых классов
+ */
+.right {
+    text-align: right !important;
+}
+.left {
+    text-align: left !important;
+}
+.center {margin: 5px auto;}
+.bold {
+    font-weight: bold !important;
+}
+
+.white {
+    background-color: #fff !important;
+}
+
+.hide {
+    visibility: hidden !important;
+}
+.padL15 {padding-left: 15px !important;}
+.padT10 {padding-top: 10px !important;}
+
+.date {color: #267123; font-family: Georgia; font-size: 14px; font-weight: bold; }
+
+.no-border {border: none!important;}
+
+.top5px {top: 5px !important;}
+.top10px {top: 10px !important;}

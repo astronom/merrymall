@@ -1,0 +1,175 @@
+# Project The Game Schema
+mGameAccount:
+  actAs: [Timestampable]
+  tableName:          mm_g_accounts
+  columns:
+    id:
+      type:           integer(3)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+      unsigned:       true
+    user_id:
+      type:           integer(4)
+    round_id:
+      type:           integer(1)
+      unsigned:       true
+      notnull:        true
+    rating:
+      type:           integer(1)
+      unsigned:       true
+      notnull:        true
+    money:
+      type:           decimal(10,2)
+      unsigned:       true
+    credit:
+      type:           decimal(10,2)
+      unsigned:       true
+  relations:
+    sfGuardUser:
+      onDelete:       CASCADE
+      local:          user_id
+      foreign:        id
+      foreignType:    one
+    mGameRoundRules:
+      type:           many
+      class:          mGameRoundRule
+      local:          round_id
+      foreing:        id     
+  indexes:
+    round_id_idx:
+      fields:          [round_id]
+    user_id_idx:
+      fields:          [user_id]
+    rating_idx:
+      fields:          [rating]     
+
+mGameCart:
+  actAs: [Timestampable]
+  tableName:          mm_g_carts
+  columns:
+    id:
+      type:           integer(4)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+      unsigned:       true
+    price:
+      type:           decimal(10,2)
+      notnull:        true
+      unsigned:       true
+    user_id:
+      type:           integer(3)
+      notnull:        true
+      unsigned:       true
+    company_id:
+      type:           integer(3)
+      notnull:        true
+      unsigned:       true
+    item_variant_id:
+      type:           integer(3)
+      default:        0
+      unsigned:       true
+    round:
+      type:           integer(1)
+      unsigned:       true
+      default:        1            
+  relations:
+    sfGuardUser:
+      onDelete:       CASCADE
+      local:          user_id
+      foreign:        id
+      foreignAlias:   gCart
+    sItemVariant:
+      onDelete:       CASCADE
+      local:          item_variant_id
+      foreign:        id
+      foreignAlias:   gCart
+    Company:
+      onDelete:       CASCADE
+      local:          company_id
+      foreign:        id
+      foreignAlias:   gCart
+  indexes:
+    company_id_idx:
+      fields:         [company_id]
+    round_idx:
+      fields:         [round]
+    user_id_idx:  
+      fields:         [user_id]
+    item_variant_id_idx:
+      fields:         [item_variant_id]
+
+mGameUserItem:
+  actAs: [Timestampable]
+  tableName:          mm_g_user_items
+  columns:
+    id:
+      type:           integer(4)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+      unsigned:       true  
+    url:
+      type:           string(255)
+      notnull:        true      
+    picture:
+      type:           string(255)
+      notnull:        true      
+    price:            
+      type:           decimal(10,2)
+      notnull:        true
+      unsigned:       true
+    description:
+      type:           string(255)
+    is_verified:
+      type:           enum
+      values:
+        - process
+        - ok
+        - bad        
+      notnull:        true
+      default:        process
+    user_id:
+      type:           integer(3)
+      notnull:        true
+      unsigned:       true
+  relations:
+    sfGuardUser:
+      onDelete:       CASCADE
+      local:          user_id
+      foreign:        id
+      foreignAlias:   gUserItem
+  indexes:
+    user_id_idx:  
+      fields:         [user_id]
+    verified_idx:
+      fields:         [is_verified]
+
+mGameRoundRules:
+  tableName:          mm_g_round_rules
+  columns:
+    id:
+      type:           integer(2)
+      notnull:        true
+      primary:        true
+      autoincrement:  true
+      unsigned:       true
+    round:
+      type:           integer(2)
+      unsigned:       true
+      notnull:        true
+    money:
+      type:           decimal(10,2)
+      unsigned:       true
+      notnull:        true      
+    purchases:
+      type:           integer(1)
+      unsigned:       true
+      notnull:        true
+    additionalRules:
+      type:           object
+  indexes:
+    round_idx:  
+      fields:         [round]
+    

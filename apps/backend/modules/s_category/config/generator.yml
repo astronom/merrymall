@@ -1,0 +1,39 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           sCategory
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          s_category
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        display: [id, name, root_id, lft, rgt, level]
+        max_per_page: 999999
+        batch_actions:
+          order:
+            label: Update tree order
+          _delete: ~
+        object_actions:
+          new:
+            label: Add Child
+          editItems:
+            label: Товары  
+          _edit:    ~
+          _delete:  ~
+        actions:
+          _new:
+            label: Add Root
+      filter:
+        class: false
+      form:
+        class: BackendsCategoryForm
+      edit:    ~
+      new:     ~

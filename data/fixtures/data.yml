@@ -1,0 +1,413 @@
+#CompanyProfile:
+#  CompanyProfile_1:
+#    Company: Company_8
+#    description: ''
+#    news: ''
+#    actions: ''
+#    contacts: ''
+#    created_at: '2010-03-29 12:44:17'
+#    updated_at: '2010-03-29 12:44:17'
+#  CompanyProfile_2:
+#    Company: Company_9
+#    description: ''
+#    news: ''
+#    actions: ''
+#    contacts: ''
+#    created_at: '2010-03-29 12:51:14'
+#    updated_at: '2010-03-29 12:51:14'
+#  CompanyProfile_3:
+#    Company: Company_7
+#    description: ''
+#    news: ''
+#    actions: ''
+#    contacts: ''
+#    created_at: '2010-03-29 12:55:07'
+#    updated_at: '2010-03-29 12:55:07'
+#  CompanyProfile_4:
+#    Company: Company_1
+#    description: 'Центр недвижимости "Воздвиженский"'
+#    news: ''
+#    actions: ''
+#    contacts: ''
+#    created_at: '2010-03-29 12:57:08'
+#    updated_at: '2010-03-29 13:40:46'
+#  CompanyProfile_5:
+#    Company: Company_3
+#    description: ''
+#    news: ''
+#    actions: ''
+#    contacts: ''
+#    created_at: '2010-03-29 13:03:26'
+#    updated_at: '2010-03-29 13:03:26'
+#  CompanyProfile_6:
+#    Company: Company_6
+#    description: ''
+#    news: ''
+#    actions: ''
+#    contacts: ''
+#    created_at: '2010-03-29 13:08:00'
+#    updated_at: '2010-03-29 13:08:00'
+#  CompanyProfile_7:
+#    Company: Company_10
+#    description: ''
+#    news: ''
+#    actions: ''
+#    contacts: ''
+#    created_at: '2010-03-29 13:08:49'
+#    updated_at: '2010-03-29 13:08:49'
+#  CompanyProfile_8:
+#    Company: Company_5
+#    description: ''
+#    news: ''
+#    actions: ''
+#    contacts: ''
+#    created_at: '2010-03-29 13:09:48'
+#    updated_at: '2010-03-29 13:09:48'
+#  CompanyProfile_9:
+#    Company: Company_11
+#    description: ''
+#    news: ''
+#    actions: ''
+#    contacts: ''
+#    created_at: '2010-03-29 13:10:55'
+#    updated_at: '2010-03-29 13:10:55'
+#  CompanyProfile_10:
+#    Company: Company_12
+#    description: ''
+#    news: ''
+#    actions: ''
+#    contacts: ''
+#    created_at: '2010-03-29 13:14:27'
+#    updated_at: '2010-03-29 13:14:27'
+#  CompanyProfile_11:
+#    Company: Company_2
+#    description: ''
+#    news: ''
+#    actions: ''
+#    contacts: ''
+#    created_at: '2010-03-29 13:18:26'
+#    updated_at: '2010-03-29 13:18:26'
+#  CompanyProfile_12:
+#    Company: Company_13
+#    description: ''
+#    news: ''
+#    actions: ''
+#    contacts: ''
+#    created_at: '2010-03-29 13:19:07'
+#    updated_at: '2010-03-29 13:19:07'
+#  CompanyProfile_13:
+#    Company: Company_14
+#    description: ''
+#    news: ''
+#    actions: ''
+#    contacts: ''
+#    created_at: '2010-03-29 13:27:49'
+#    updated_at: '2010-03-29 13:27:49'
+#  CompanyProfile_14:
+#    Company: Company_4
+#    description: ''
+#    news: ''
+#    actions: ''
+#    contacts: ''
+#    created_at: '2010-03-29 13:46:38'
+#    updated_at: '2010-03-29 13:46:38'
+#News:
+#  News_1:
+#    text: '<a href="/news1">Покупать стало легче, покупать стало веселей. МерриМолл.</a>'
+#    date: '2010-01-14'
+#  News_2:
+#    text: '<a href="/news2">Свободных мест в МерриМолле остается все меньше...</a>'
+#    date: '2010-03-01'
+#  News_3:
+#    text: '<a href="/news3">До запуска проекта МерриМолл остаются считанные дни...</a>'
+#    date: '2010-03-26'
+#  News_4:
+#    text: '<a href="/news4">Объемы интернет-торговли в России значительно выросли...</a>'
+#    date: '2010-03-26'
+#
+#sfGuardUserProfile:
+#  sfGuardUserProfile_1:
+#    User: sfGuardUser_1
+#    email: wronglink@gmail.com
+#    firstname: 'Михаил'
+#    lastname: 'Еловских'
+#    patronymic: 'Алексеевич'
+#    phone: '+79630496705'
+#    address: 'Екатеринбург, Белинского 71-80'
+#    validate: n09336ca371faffc6
+#sfGuardPermission:
+#  sfGuardPermission_1:
+#    name: 'Backend manager'
+#    description: 'Permission to work with backend application'
+#sfGuardUser:
+#  sfGuardUser_1:
+#    username: wronglink
+#    algorithm: sha1
+#    salt: 20bfd838cd1323463f47a9ca8b395f41
+#    password: 123456
+#    is_active: true
+#    is_super_admin: true
+#sfGuardUserGroup:
+#  sfGuardUserGroup_1_1:
+#    sfGuardUser: sfGuardUser_1
+#    sfGuardGroup: sfGuardGroup_1
+#sfGuardGroup:
+#  sfGuardGroup_1:
+#    name: 'Merrymall employee'
+#    description: 'The basic group of merrymall employees'
+#  sfGuardGroup_2:
+#    name: 'Company employee'
+#    description: 'Company employee'
+#sfGuardGroupPermission:
+#  sfGuardGroupPermission_1_1:
+#    sfGuardGroup: sfGuardGroup_1
+#    sfGuardPermission: sfGuardPermission_1
+#
+#Floor:
+#  Floor_1:
+#    position: '1'
+#    type: floor
+#    text: Вход
+#    class: floor-1
+#    has_companies: false
+#    url: '1'
+#  Floor_2:
+#    position: '2'
+#    type: tabloid
+#    text: null
+#    class: floor-1-2-tabloid
+#    has_companies: false
+#    url: null
+#  Floor_3:
+#    position: '3'
+#    type: cornice
+#    text: null
+#    class: floor-1-2-cornice
+#    has_companies: false
+#    url: null
+#  Floor_4:
+#    position: '4'
+#    type: floor
+#    text: '2 этаж'
+#    class: floor-2
+#    has_companies: false
+#    url: '2'
+#  Floor_5:
+#    position: '5'
+#    type: floor
+#    text: '3 этаж'
+#    class: floor-3
+#    has_companies: false
+#    url: '3'
+#  Floor_6:
+#    position: '6'
+#    type: cornice
+#    text: null
+#    class: floor-3-4-cornice
+#    has_companies: false
+#    url: null
+#  Floor_7:
+#    position: '7'
+#    type: floor
+#    text: '4 этаж'
+#    class: floor-4
+#    has_companies: false
+#    url: '4'
+#  Floor_8:
+#    position: '8'
+#    type: floor
+#    text: '5 этаж'
+#    class: floor-5
+#    has_companies: false
+#    url: '5'
+#  Floor_9:
+#    position: '9'
+#    type: floor
+#    text: '6 этаж'
+#    class: floor-6
+#    has_companies: false
+#    url: '6'
+#  Floor_10:
+#    position: '10'
+#    type: floor
+#    text: '7 этаж'
+#    class: floor-7
+#    has_companies: false
+#    url: '7'
+#  Floor_11:
+#    position: '11'
+#    type: floor
+#    text: '8 этаж'
+#    class: floor
+#    has_companies: false
+#    url: '8'
+#  Floor_12:
+#    position: '12'
+#    type: floor
+#    text: '9 этаж'
+#    class: floor
+#    has_companies: false
+#    url: '9'
+#  Floor_13:
+#    position: '13'
+#    type: floor
+#    text: '10 этаж'
+#    class: floor
+#    has_companies: false
+#    url: '10'
+#  Floor_14:
+#    position: '14'
+#    type: floor
+#    text: '11 этаж'
+#    class: floor
+#    has_companies: false
+#    url: '11'
+#  Floor_15:
+#    position: '15'
+#    type: floor
+#    text: '12 этаж'
+#    class: floor
+#    has_companies: false
+#    url: '12'
+#  Floor_16:
+#    position: '16'
+#    type: floor
+#    text: '13 этаж'
+#    class: floor
+#    has_companies: false
+#    url: '13'
+#  Floor_17:
+#    position: '17'
+#    type: floor
+#    text: '14 этаж'
+#    class: floor-top-1
+#    has_companies: false
+#    url: '14'
+#  Floor_18:
+#    position: '18'
+#    type: floor
+#    text: '15 этаж'
+#    class: floor-top-2
+#    has_companies: false
+#    url: '15'
+#  Floor_19:
+#    position: '19'
+#    type: roof
+#    text: null
+#    class: roof
+#    has_companies: false
+#    url: null
+#
+#Company:
+#  Company_1:
+#    name: Воздвиженский
+#    url: vozdvizhenskiy
+#    type: office
+#    position: '3'
+#    has_logo: false
+#    has_shopwindow: true
+#    Floor: Floor_5
+#  Company_2:
+#    name: 'Мы вместе'
+#    url: my_vmeste
+#    type: office
+#    position: '3'
+#    has_logo: false
+#    has_shopwindow: true
+#    Floor: Floor_4
+#  Company_3:
+#    name: 'Правовые технологии'
+#    url: pravovye_tehnologii
+#    type: office
+#    position: '4'
+#    has_logo: false
+#    has_shopwindow: true
+#    Floor: Floor_5
+#  Company_4:
+#    name: ССБ
+#    url: ssb
+#    type: office
+#    position: '4'
+#    has_logo: true
+#    has_shopwindow: true
+#    Floor: Floor_4
+#  Company_5:
+#    name: ЦМТ
+#    url: cmt
+#    type: office
+#    position: '3'
+#    has_logo: false
+#    has_shopwindow: true
+#    Floor: Floor_7
+#  Company_6:
+#    name: Черкашин
+#    url: cherkashin
+#    type: store
+#    position: '1'
+#    has_logo: false
+#    has_shopwindow: true
+#    Floor: Floor_7
+#  Company_7:
+#    name: 'Элита трэвэл'
+#    url: elita_trаvel
+#    type: office
+#    position: '2'
+#    has_logo: false
+#    has_shopwindow: true
+#    Floor: Floor_5
+#  Company_8:
+#    name: Теле-Фоно
+#    url: tele-fono
+#    type: store
+#    position: '1'
+#    has_logo: false
+#    has_shopwindow: true
+#    Floor: Floor_5
+#  Company_9:
+#    name: Чудетство
+#    url: chudetstvo
+#    type: store
+#    position: '5'
+#    has_logo: false
+#    has_shopwindow: true
+#    Floor: Floor_5
+#  Company_10:
+#    name: Очкофф
+#    url: ochkoff
+#    type: store
+#    position: '2'
+#    has_logo: false
+#    has_shopwindow: true
+#    Floor: Floor_7
+#  Company_11:
+#    name: 'Умные детки'
+#    url: umnye_detki
+#    type: store
+#    position: '4'
+#    has_logo: false
+#    has_shopwindow: true
+#    Floor: Floor_7
+#  Company_12:
+#    name: Евросеть
+#    url: euroset
+#    type: store
+#    position: '1'
+#    has_logo: false
+#    has_shopwindow: true
+#    Floor: Floor_4
+#  Company_13:
+#    name: Кардинал
+#    url: kardinal
+#    type: store
+#    position: '2'
+#    has_logo: false
+#    has_shopwindow: true
+#    Floor: Floor_4
+#  Company_14:
+#    name: Уралстайл
+#    url: uralstyle
+#    type: store
+#    position: '5'
+#    has_logo: false
+#    has_shopwindow: true
+#    Floor: Floor_4

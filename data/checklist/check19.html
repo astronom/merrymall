@@ -1,0 +1,124 @@
+<p class="permalink">
+    <a title="http://symfony-check.org/permalink/optimize-apache-avoid-htaccess" href="/permalink/optimize-apache-avoid-htaccess">permalink</a>
+</p>
+<p>
+    The .htaccess file is very usefull: it's flexible, it works everywhere and the modifications are processed instantaneously.
+</p>
+<p>
+    But the drawback is that the rules written in it can't be cached by apache, the server has to scan the file for every single request.
+</p>
+<p>
+    If you move the .htaccess rules to your virtual host configuration file, the rules will be cached and apache performance will improve.
+</p>
+<p>
+    Unfortunately, you can't access to the apache configuration files on shared hosts, that's why symfony uses the .htaccess file by default.
+    <br>
+    <strong>So sorry, this tip only works for dedicated server users.</strong>
+</p>
+<h3>Open your virtual host configuration file</h3>
+<p>
+    Most often, you'll find the virtual host configurations in the bottom of the 
+    <code>
+        httpd.conf
+    </code>, but sometimes, they are moved in some 
+    <code>
+        vhosts.conf
+    </code>
+    file.
+</p>
+<p>
+    Your virtual host should look like to something like this:
+</p>
+<pre><code>&lt;VirtualHost *:80&gt;
+  ServerName my-symfony-project.com
+  DirectoryIndex index.php
+  DocumentRoot "/path-to-your-sf-project/web"
+  &lt;Directory "/path-to-your-sf-project/web"&gt;
+    AllowOverride All
+    Allow from All
+  &lt;/Directory&gt;
+  Alias /sf /path-to-your-sf-project/lib/vendor/symfony/data/web/sf/
+  &lt;Directory "/path-to-your-sf-project/lib/vendor/symfony/data/web/sf/"&gt;
+    AllowOverride All
+    Allow from All
+  &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</code></pre>
+<p>
+    You need to add your rules to 
+    <code>
+        &lt;Directory "/path-to-your-sf-project/web"&gt;
+    </code>
+    :
+</p>
+<pre><code>&lt;Directory "/path-to-your-sf-project/web"&gt;
+  AllowOverride None
+  Allow from All
+  Options FollowSymLinks ExecCGI
+
+  RewriteEngine On
+
+  # uncomment the following line, if you are having trouble
+  # getting no_script_name to work
+  #RewriteBase /
+
+  # we skip all files with .something
+  #RewriteCond %{REQUEST_URI} \..+$
+  #RewriteCond %{REQUEST_URI} !\.html$
+  #RewriteRule .* - [L]
+
+  # we check if the .html version is here (caching)
+  RewriteRule ^$ index.html [QSA]
+  RewriteRule ^([^.]+)$ $1.html [QSA]
+  RewriteCond %{REQUEST_FILENAME} !-f
+
+  # no, so we redirect to our front web controller
+  RewriteRule ^(.*)$ index.php [QSA,L]
+&lt;/Directory&gt;
+</code></pre>
+<h3>Remove the 
+    <code>
+        my_project/web/.htaccess
+    </code>
+    file
+</h3>
+<p>
+    Unless you added extra rules in it, the file is now useless.
+</p>
+<h3>Test the modifications and restart Apache</h3>
+<p>
+    Apache provides the 
+    <code>
+        configtest
+    </code>
+    tool to check that apache configuration files are ok.
+</p>
+<p>
+    On many linux servers, you can access to apache commands by 
+    <code>
+        /etc/init.d/apachectl makeMeSandwich
+    </code>.
+    <br>
+    Rights errors just need the 
+    <code>
+        sudo
+    </code>
+    prefix to be fixed: 
+    <code>
+        sudo /etc/init.d/apachectl makeMeSandwich
+    </code>
+</p>
+<pre><code>/etc/init.d/apachectl apachectl configtest
+</code></pre>
+<p>
+    If there's no error:
+</p>
+<pre><code>/etc/init.d/apachectl apachectl restart
+</code></pre>
+<h3>Document this in a README file</h3>
+<p>
+    Your project really should have at least one README file where this kind of modifications are reported.
+</p>
+<p>
+    <em>This tip was given by Jérôme Macias on the <a href="http://forum.symfony-project.org/index.php/m/81968/#msg_81968">symfony-check thread</a>.</em>
+</p>

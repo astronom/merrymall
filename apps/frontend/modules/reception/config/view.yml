@@ -1,0 +1,28 @@
+indexSuccess:
+  metas:
+    title:        Ресепшн - MerryMall
+    description:  Мерри Молл
+
+  #stylesheets:    [ reception.css ]
+  #javascripts:    [ rmenu, plugin/inputlabel, plugin/jCarouselLite, plugin/pngFix ]
+
+companiesSuccess:
+  metas:
+    title:        Список зарегистрированных компаний - MerryMall
+    description:  Мерри Молл
+
+  javascripts:    [ plugin/inputlabel ]
+  
+rootTagsSuccess:
+  metas:
+    title:        Категории товаров - MerryMall
+    description:  Мерри Молл
+
+  #javascripts:    [ rmenu, plugin/inputlabel, plugin/jCarouselLite, plugin/pngFix ]
+  
+tagsSuccess:
+  metas:
+    title:        Категории товаров - MerryMall
+    description:  Мерри Молл
+
+  #javascripts:    [ rmenu, plugin/inputlabel, plugin/jCarouselLite, plugin/pngFix ]

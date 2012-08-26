@@ -1,0 +1,59 @@
+<p class="permalink">
+    <a title="http://symfony-check.org/permalink/customize-rsync-exclude-txt" href="/permalink/customize-rsync-exclude-txt">permalink</a>
+</p>
+<p class="thumb">
+    <img alt="You shall not pass!" src="/images/You_Shall_Not_Pass.jpg" width="135" height="150">
+</p><h3>Test environment scripts SHALL NOT PASS</h3>
+<p>
+    To prevent that only production related scripts are published on the production server, symfony provides you two tools : the 
+    <code>
+        php symfony project:clear-controllers
+    </code>
+    command and the 
+    <code>
+        myproject/config/rsync_exclude.txt
+    </code>
+    file.
+</p>
+<p>
+    The 
+    <code>
+        rsync_exclude.txt
+    </code>
+    file filters by default the scripts related to the 
+    <code>
+        dev
+    </code>
+    environment. But if you use some other ones, they have to be added:
+</p>
+<pre><code>/web/*_cache.php
+/web/*_test.php
+</code></pre>
+<p>
+    These files aren't very dangerous, but they also should be filtered :
+</p>
+<pre><code>Thumbs.db
+.DS_Store
+</code></pre>
+<h3>Production database must be protected</h3>
+<p>
+    You really should add theses files to 
+    <code>
+        rsync_exclude.txt
+    </code>
+    :
+</p>
+<pre><code>/config/databases.yml
+/data/sql/schema.sql
+</code></pre>
+<h3>Force some files to be transfered</h3>
+<p>
+    You can create a 
+    <code>
+        myproject/config/rsync_include.txt
+    </code>
+    file that will be able to force the transfer of files or directories.
+</p>
+<p>
+    <em>Read the <a href="http://www.symfony-project.org/book/1_2/16-Application-Management-Tools#chapter_16_sub_using_rsync_for_incremental_file_transfer">related symfony documentation</a></em>
+</p>

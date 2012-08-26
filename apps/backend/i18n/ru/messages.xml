@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file source-language="EN" target-language="ru" datatype="plaintext" original="messages" date="2010-09-06T14:46:29Z" product-name="messages">
+    <header/>
+    <body>
+      <trans-unit id="1">
+        <source>Company List</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>No result</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Actions</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>[0] no result|[1] 1 result|(1,+Inf] %1% results</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>(page %%page%%/%%nb_pages%%)</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>Logo</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="7">
+        <source>Sw</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>S category List</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>Список текстов проекта</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="10">
+        <source>Редактирование текста в "%%url%%"</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="11">
+        <source>Новый текст</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

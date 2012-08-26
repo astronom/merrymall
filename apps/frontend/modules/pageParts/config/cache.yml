@@ -1,0 +1,9 @@
+_header:
+  enabled:     true
+  with_layout: false
+_chat:
+  enabled:     false
+_privateArea:
+  enabled:     false
+_miniCart:
+  enabled:     false

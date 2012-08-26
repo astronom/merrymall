@@ -1,0 +1,12 @@
+indexSuccess:
+  metas:
+    title:        Новости - Merry Mall
+    description:  Мерри Молл
+
+  #javascripts:    [ plugin/pngFix, rmenu, plugin/inputlabel ]
+showSuccess:
+  metas:
+    title:        Новости - Merry Mall
+    description:  Мерри Молл
+
+  #javascripts:    [ plugin/pngFix, rmenu, plugin/inputlabel ]

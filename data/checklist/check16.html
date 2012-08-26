@@ -1,0 +1,27 @@
+<p class="permalink">
+    <a title="http://symfony-check.org/permalink/protect-your-forms" href="/permalink/protect-your-forms">permalink</a>
+</p>
+<p>
+    <strong>Useless for sf1.3/1.4 project</strong>
+</p>
+<p>
+    symfony has the ability to protect each form of your project against <a href="http://en.wikipedia.org/wiki/CSRF">CSRF attacks</a>.
+</p>
+<p>
+    To enable this feature, you have to prompt a csrf key in 
+    <code>
+        apps/frontend/config/settings.yml
+    </code>
+    :
+</p>
+<pre><code>all:
+  .settings:
+    csrf_secret:       chooseYouOwnSecretKey
+</code></pre>
+<p>
+    This solution inject in each form a token unique for a given user and for a given form.
+    Be carefull, forms that use the csrf protection can no longer be cached.
+</p>
+<p>
+    <em>Read the <a href="http://www.symfony-project.org/jobeet/1_2/Propel/en/22#chapter_22_forms_in_cache">related symfony documentation</a></em>
+</p>

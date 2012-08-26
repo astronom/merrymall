@@ -1,0 +1,20 @@
+<p class="permalink">
+    <a title="http://symfony-check.org/permalink/customize-the-language-of-your-pages" href="/permalink/customize-the-language-of-your-pages">permalink</a>
+</p>
+<p>
+    By default, symfony puts 
+    <code>
+        lang="en"
+    </code>
+    on every single page of your project.
+</p>
+<p>
+    If your application deals with other languages than english, go to your 
+    <code>
+        apps/frontend/templates/layout.php
+    </code>
+    file and change the second line:
+</p>
+<pre><code>&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="&lt;?php echo $sf_user-&gt;getCulture() ?&gt;"↵
+  lang="&lt;?php echo $sf_user-&gt;getCulture() ?&gt;"&gt;
+</code></pre>

@@ -1,0 +1,135 @@
+<p class="permalink">
+    <a title="http://symfony-check.org/permalink/protect-yourself-against-user-uploaded-files" href="/permalink/protect-yourself-against-user-uploaded-files">permalink</a>
+</p>
+<p>
+    When it comes to security, the very first rule is that all data sent  by users should be validated before being stored on the server.
+</p>
+<p>
+    Experience shows that some developers give poor, little or no attention at all to validating file uploads.
+</p>
+<p>
+    This is mostly due to laziness. However, sometimes the purpose is to build a more flexible form. Example: a CV upload field that accepts any file extension.
+</p>
+<p>
+    <strong>This is a huge security mistake.</strong>
+</p>
+<p>
+    Why? Because these files by default are stored in the 
+    <code>
+        uploads
+    </code>
+    directory which is publicly accessible.
+</p>
+<p>
+    If one of your users succeeds in uploading a php file, such as 
+    <code>
+        attack.php
+    </code>
+    through one of your forms, then he will be able to run the script just by using the 
+    <code>
+        http//your-sf-project.com/uploads/attack.php
+    </code>
+    uri.
+</p>
+<p>
+    If the aforementioned php file contained malicious code then the hacker could get access to your database settings, user details,  delete data etc.
+</p>
+<h3>First step: check all of your file upload fields</h3>
+<p>
+    It is absolutely critical that uploaded files are validated.
+</p>
+<p>
+    Read again the <a href="http://www.symfony-project.org/forms/1_4/en/B-Validators#chapter_b_sub_sfvalidatorfile">file validator documentation</a>. Do all of your validators have customised 
+    <code>
+        mime_types
+    </code>
+    or a 
+    <code>
+        mime_categories
+    </code>
+    option ? 
+    You should also prevent your forms from accepting the 
+    <code>
+        .htaccess
+    </code>
+    mime  type.
+</p>
+<h3>Second step: disable php execution in the "uploads" directory</h3>
+<p>
+    If you have access to the 
+    <code>
+        httpd.conf
+    </code>
+    file, add the following rule to your virtualhost:
+</p>
+<pre><code>&lt;VirtualHost *:80&gt;
+
+   ...
+   ...
+   &lt;Directory "/path/to/my/sfProject/web/uploads"&gt;
+     php_flag engine off
+   &lt;/Directory&gt;
+ &lt;/VirtualHost &gt;
+</code></pre>
+<p>
+    If you don’t have access to the 
+    <code>
+        httpd.conf
+    </code>
+    of your host, add a new 
+    <code>
+        .htaccess
+    </code>
+    file in your 
+    <code>
+        /path/to/my/sfProject/web/uploads
+    </code>
+    directory:
+</p>
+<pre><code>php_flag engine off
+</code></pre>
+<h3>Third step: Avoid to use the 
+    <code>
+        uploads
+    </code>
+    directory when you can
+</h3>
+<p>
+    Some uploaded files - like user avatars - need to be publicly accessible and are displayed very often by the server, the 
+    <code>
+        uploads
+    </code>
+    directory is the right place for them.
+</p>
+<p>
+    But many other user files are private or rarely displayed. All these files could be stored in the 
+    <code>
+        data
+    </code>
+    directory (<a href="http://www.symfony-project.org/book/1_2/02-Exploring-Symfony-s-Code#chapter_02_sub_file_tree_structure">documentation</a>).
+</p>
+<p>
+    1/ Create a 
+    <code>
+        files
+    </code>
+    sub directory: 
+    <code>
+        mkdir /path/to/my/sfProject/data/files
+    </code>
+</p>
+<p>
+    2/ Change the 
+    <code>
+        path
+    </code>
+    option in your forms:
+</p>
+<pre><code>$this-&gt;validatorSchema['driver_licence_pic'] = new sfValidatorFile(array(
+  'mime_types' =&gt; 'web_images',
+  'path'       =&gt; sfConfig::get('sf_data_dir').'/files/driver_licence',
+));
+</code></pre>
+<p>
+    3/ And add a dedicated route to the file.
+</p>

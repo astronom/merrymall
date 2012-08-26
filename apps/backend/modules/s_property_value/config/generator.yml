@@ -1,0 +1,24 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           sPropertyValue
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          s_property_value
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        display: [id, item_name, property_name, value, company_name]
+      filter:
+        class: BackendsPropertyValueFormFilter
+      form:
+        class: BackendsPropertyValueForm
+      edit:    ~
+      new:     ~

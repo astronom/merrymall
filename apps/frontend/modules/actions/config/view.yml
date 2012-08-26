@@ -1,0 +1,13 @@
+indexSuccess:
+  metas:
+    title:        Акции - Merry Mall
+    description:  Мерри Молл
+
+  #javascripts:    [ plugin/pngFix, rmenu, plugin/inputlabel ]
+
+showSuccess:
+  metas:
+    title:        Акции - Merry Mall
+    description:  Мерри Молл
+
+  #javascripts:    [ plugin/pngFix, rmenu, plugin/inputlabel ]

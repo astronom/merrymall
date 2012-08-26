@@ -1,0 +1,11 @@
+indexSuccess:
+  http_metas:
+    content-type: text/html
+  metas:
+    title:        Merry Mall - Ошибка версии браузера
+    description:  Мерри Молл
+  stylesheets:    [ ie6_browser_choice ]
+
+default:
+  stylesheets:
+  javascripts:

@@ -1,0 +1,191 @@
+News:
+  News_1:
+    text: '<a href="/news1">Покупать стало легче, покупать стало веселей. МерриМолл.</a>'
+    date: '2010-01-14'
+  News_2:
+    text: '<a href="/news2">Свободных мест в МерриМолле остается все меньше...</a>'
+    date: '2010-03-01'
+  News_3:
+    text: '<a href="/news3">До запуска проекта МерриМолл остаются считанные дни...</a>'
+    date: '2010-03-26'
+  News_4:
+    text: '<a href="/news4">Объемы интернет-торговли в России значительно выросли...</a>'
+    date: '2010-03-26'
+
+
+Floor:
+  Floor_1:
+    order_n:  1
+    type:     floor
+    text:     Вход
+    class:    floor-1
+    url:      1
+  Floor_2:
+    order_n:  2
+    type:     tabloid
+    class:    floor-1-2-tabloid
+
+  Floor_3:
+    order_n:  3
+    type:     cornice
+    class:    floor-1-2-cornice
+
+  Floor_4:
+    order_n:  4
+    type:     floor
+    text:     2 этаж
+    class:    floor-2
+    url:      2
+
+  Floor_5:
+    order_n:  5
+    type:     floor
+    text:     3 этаж
+    class:    floor-3
+    url:      3
+
+  Floor_6:
+    order_n:  6
+    type:     cornice
+    class:    floor-3-4-cornice
+
+  Floor_7:
+    order_n:  7
+    type:     floor
+    text:     4 этаж
+    class:    floor-4
+    url:      4
+
+  Floor_8:
+    order_n:  8
+    type:     floor
+    text:     5 этаж
+    class:    floor-5
+    url:      5
+
+  Floor_9:
+    order_n:  9
+    type:     floor
+    text:     6 этаж
+    class:    floor-6
+    url:      6
+
+  Floor_10:
+    order_n:  10
+    type:     floor
+    text:     7 этаж
+    class:    floor-7
+    url:      7
+
+  Floor_11:
+    order_n:  11
+    type:     floor
+    text:     8 этаж
+    class:    floor
+    url:      8
+
+  Floor_12:
+    order_n:  12
+    type:     floor
+    text:     9 этаж
+    class:    floor
+    url:      9
+
+  Floor_13:
+    order_n:  13
+    type:     floor
+    text:     10 этаж
+    class:    floor
+    url:      10
+
+  Floor_14:
+    order_n:  14
+    type:     floor
+    text:     11 этаж
+    class:    floor
+    url:      11
+
+  Floor_15:
+    order_n:  15
+    type:     floor
+    text:     12 этаж
+    class:    floor
+    url:      12
+
+  Floor_16:
+    order_n:  16
+    type:     floor
+    text:     13 этаж
+    class:    floor
+    url:      13
+
+  Floor_17:
+    order_n:  17
+    type:     floor
+    text:     14 этаж
+    class:    floor-top-1
+    url:      14
+
+  Floor_18:
+    order_n:  18
+    type:     floor
+    text:     15 этаж
+    class:    floor-top-2
+    url:      15
+
+  Floor_19:
+    order_n:  19
+    type:     roof
+    class:    roof
+
+
+Company:
+  Company_1:
+    name:       Воздвиженский
+    url:        vozdvizhenskiy
+    type:       store
+    has_shopwindow: true
+    order_n:    1
+    Floor:      Floor_4
+  Company_2:
+    name:       Мы вместе
+    url:        we_together
+    type:       store
+    has_shopwindow: true
+    order_n:    2
+    Floor:      Floor_4
+  Company_3:
+    name:       Правовые технологии
+    url:        pravovie_tehnologii
+    type:       office
+    has_shopwindow: true
+    order_n:    3
+    Floor:      Floor_4
+  Company_4:
+    name:       ССБ
+    url:        ssb
+    type:       office
+    has_shopwindow: true
+    order_n:    4
+    Floor:      Floor_4
+  Company_5:
+    name:       ЦМТ
+    url:        cmt
+    type:       store
+    has_shopwindow: true
+    order_n:    5
+    Floor:      Floor_4
+  Company_6:
+    name:       Черкашин
+    url:        cherkashin
+    type:       store
+    has_shopwindow: true
+    order_n:    6
+    Floor:      Floor_4
+  Company_7:
+    name:       Элита тревел
+    url:        elita_trevel
+    type:       office
+    has_shopwindow: true
+    order_n:    7
+    Floor:      Floor_4

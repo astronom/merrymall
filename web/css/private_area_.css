@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+body {background: #fff;}
+/*редактирование профиля пользователя*/
+#profile_form {text-align: left; padding-left: 100px;}
+	#profile_form th {color:#535353;
+					  padding-top: 3px;
+					  font-size:13px;
+					  font-weight:normal;
+					  text-align:left;
+					  vertical-align: top;}
+	#profile_form td {color:#535353; 
+					  font-size:12px; 
+					  padding: 0 10px 10px; }
+	#profile_form tfoot {text-align: right;}
+	#profile_form input {border:1px solid #7890AE;
+						 height:21px;
+						 width:212px;}
+	#profile_form textarea {border:1px solid #7890AE;
+						 	height:60px;
+							width:212px;}
