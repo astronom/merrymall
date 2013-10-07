@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__).'/../lib/vendor/1.4.11/lib/autoload/sfCoreAutoload.class.php';
+require_once dirname(__FILE__).'/../lib/vendor/symfony/lib/autoload/sfCoreAutoload.class.php';
 sfCoreAutoload::register();
 
 class ProjectConfiguration extends sfProjectConfiguration
@@ -18,9 +18,9 @@ class ProjectConfiguration extends sfProjectConfiguration
     $this->enablePlugins('sfPhpExcelPlugin');
 
     //Подключаем дополнительные функции для панели отладки
-    $this->dispatcher->connect('debug.web.load_panels', array(
-    	'amWebDebugPanelDocumentation',
-    	'listenToLoadDebugWebPanelEvent'
-    ));
+//    $this->dispatcher->connect('debug.web.load_panels', array(
+//    	'amWebDebugPanelDocumentation',
+//    	'listenToLoadDebugWebPanelEvent'
+//    ));
   }
 }

@@ -1,5 +1,5 @@
 <?php
-class WidgetFormWYSIWYG extends sfWidgetFormTextarea
+class mmWidgetFormWYSIWYG extends sfWidgetFormTextarea
 {
   public function getStylesheets()
   {

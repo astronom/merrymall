@@ -6,13 +6,12 @@ class sfGuardUserTable extends PluginsfGuardUserTable
 //  $isActive - по умолчанию пользователь должен быть активирован в системе 
   public function retrieveByUsernameOrEmail($username_or_email, $isActive = true)
   {
-    $q = Doctrine::getTable('sfGuardUser')->createQuery('u')
+    $q = $this->createQuery('u')
       ->leftJoin('u.Profile p')
       ->where('u.username = ?', $username_or_email)
       ->orWhere('p.email = ?', $username_or_email)
-      ->addWhere('u.is_active = ?', $isActive)
-    ;
-
+      ->addWhere('u.is_active = ?', $isActive);
+//
     return $q->fetchOne();
   }
   

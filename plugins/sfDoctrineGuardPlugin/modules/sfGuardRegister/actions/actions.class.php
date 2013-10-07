@@ -130,27 +130,30 @@ class sfGuardRegisterActions extends sfActions
       if ($this->form->isValid())
       {
         $restoreUser = Doctrine::getTable('sfGuardUser')->retrieveByUsernameOrEmail($this->form->getValue('username_or_email'));
-        // Берем Email пользователя
-        $this->email = $restoreUser->getProfile()->getEmail();
+		if($restoreUser) {
+	        // Берем Email пользователя
+	        $this->email = $restoreUser->getProfile()->getEmail();
 
-        //Создаем ключ верификации
-        $guid = "n" . self::createGuid();
-        $restoreUser->getProfile()->setValidate($guid);
-        $restoreUser->save();
+	        //Создаем ключ верификации
+	        $guid = "n" . self::createGuid();
+	        $restoreUser->getProfile()->setValidate($guid);
+	        $restoreUser->save();
 
-        //Отправляем емэйл
-        $message = $this->getMailer()->compose(
-        array('admin@merrymall.ru' => 'Администрация MerryMall'),
-        $this->email,
-          'Восстановление пароля на MerryMall.ru',
-        $this->getPartial( 'restoreMail', array(
-            'login' => $restoreUser->getUsername(),
-          	'guid' => $guid
-        ))
-        );
-        $message->setContentType("text/html");
-        $this->getMailer()->send($message);
-        return sfView::SUCCESS;
+	        //Отправляем емэйл
+	        $message = $this->getMailer()->compose(
+	        array('admin@merrymall.ru' => 'Администрация MerryMall'),
+	        $this->email,
+	          'Восстановление пароля на MerryMall.ru',
+	        $this->getPartial( 'restoreMail', array(
+	            'login' => $restoreUser->getUsername(),
+	            'guid' => $guid
+	        ))
+	        );
+	        $message->setContentType("text/html");
+	        $this->getMailer()->send($message);
+			return sfView::SUCCESS;
+		}
+        else return sfView::ERROR;
       }
     }
     return 'New';

@@ -5,7 +5,7 @@
 <tr>
 <td width="15" height="15"><img src="http://merrymall.ru/images/c/pus.gif" width="15" height="15" /></td>
 <td align="left" colspan="2">
-<span style="font-family:Tahoma; font-size:12px; color:#404040;">Вы получили это письмо, так как являетесь зарегистрированным пользователем сайта MerryMall.ru. Вы можете отписаться от рассылки на странице <a href="<?php echo url_for('private_area_mail_unsucsribe',true)?>" target="_blank" style="font-family:Tahoma; font-size:12px; color:#404040; text-decoration:none;">«Личного кабинета»</a></span>
+<span style="font-family:Tahoma; font-size:12px; color:#404040;">Вы получили это письмо, так как являетесь зарегистрированным пользователем сайта MerryMall.ru. Вы можете отписаться от рассылки на странице <a href="<?php echo url_for('@private_area_mail_unsucsribe',true)?>" target="_blank" style="font-family:Tahoma; font-size:12px; color:#404040; text-decoration:none;">«Личного кабинета»</a></span>
 </td>
 <td width="15" height="15"><img src="http://merrymall.ru/images/c/pus.gif" width="15" height="15" /></td>
 </tr>
